@@ -104,10 +104,49 @@ def viewuser_get(request):
 #U S E R
 def user_home(request):
     return render(request, 'users/users_home.html')
-def editprofile_get(request):
-    return render(request, 'users/editprofile.html')
+def editprofile_get(request,id):
+    data=Users.objects.get(id=id)
+    return render(request, 'users/editprofile.html',{'data':data})
 def editprofile_post(request):
-    return
+    name = request.POST['fullname']
+    dob = request.POST['dob']
+    email = request.POST['email']
+    phone = request.POST['phoneno']
+    gender = request.POST['gender']
+    place = request.POST['place']
+    city = request.POST['city']
+    pin = request.POST['pincode']
+    district = request.POST['district']
+    state = request.POST['state']
+    id = request.POST['id']
+    u = Users.objects.get(id=id)
+    b=u.AUTHUSER
+    b.username=email
+    b.save()
+
+    if "photo" in request.FILES:
+        photo = request.FILES['photo']
+
+        fs = FileSystemStorage()
+        date = datetime.now().strftime('%d-%M-%Y-%H-%M-%S') + '.jpg'
+        fs.save(date, photo)
+        path = fs.url(date)
+        u.photo = path
+        u.save()
+    u.name = name
+    u.dob = dob
+    u.email = email
+    u.phone = phone
+    u.gender = gender
+    u.place = place
+    u.city = city
+    u.pin = pin
+    u.district = district
+    u.state = state
+    u.AUTHUSER = b
+    u.status = "pending"
+    u.save()
+    return redirect('/myapp/viewprofile_get/')
 
 def sentcomplaint_get(request):
     return render(request, 'users/sentcomplaint.html')

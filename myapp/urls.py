@@ -43,7 +43,7 @@ urlpatterns = [
 
     path('viewuser_get/',views.viewuser_get),
     #U S E R
-    path('editprofile_get/',views.editprofile_get),
+    path('editprofile_get/<id>',views.editprofile_get),
     path('editprofile_post/',views.editprofile_post),
 
     path('sentcomplaint_get/',views.sentcomplaint_get),
