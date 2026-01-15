@@ -21,7 +21,9 @@
                 <p>to continue to your account</p>
             </div>
 
-            <form class="login-form" id="loginForm" novalidate>
+            <form class="login-form" id="" method="post" action="/myapp/login_post/">
+
+                {% csrf_token %}
                 <div class="form-group">
                     <div class="input-wrapper">
                         <input type="email" id="email" name="email" required autocomplete="email">
@@ -61,7 +63,9 @@
                     </div>
                     <a href="#" class="forgot-password">Forgot password?</a>
                 </div>
-
+                {% for i in messages %}
+                    {{ i }}
+                {% endfor %}
                 <button type="submit" class="login-btn material-btn">
                     <div class="btn-ripple"></div>
                     <span class="btn-text">SIGN IN</span>

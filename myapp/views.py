@@ -1,12 +1,32 @@
-from django.shortcuts import render
+from django.contrib import messages
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User
+from django.shortcuts import render, redirect
+
 
 # Create your views here.
 def login_get(request):
     return render(request,'login.html')
 
 def login_post(request):
-    return
+    email=request.POST['email']
+    password=request.POST['password']
+    user=authenticate(request,username=email,password=password)
+    if user is not None:
+        login(request,user)
+        if user.groups.filter(name='admin'):
+            return redirect('/myapp/admin_home/')
+        else:
+            messages.error(request,'no such group')
+            return redirect('/myapp/login_get/')
+    else:
+        messages.error(request, 'no user found')
+        return redirect('/myapp/login_get/')
 
+
+# u=User.objects.get(username='admin@gmail.com')
+# u.set_password('12345')
+# u.save()
 def forgetpassword_get(request):
     return render(request, 'forgetpassword.html')
 def forgetpassword_post(request):
@@ -19,7 +39,23 @@ def admin_home(request):
 def changepassword_get(request):
     return render(request, 'admins/changepassword.html')
 def changepassword_post(request):
-    return
+    password = request.POST['currentpassword']
+    newpassword = request.POST['newpassword']
+    confirmpassword = request.POST['confirmpassword']
+
+    data=request.user
+    if not data.check_password(password):
+        messages.error(request, 'invalid current password')
+        return redirect('/myapp/changepassword_get/')
+    if newpassword!=confirmpassword:
+        messages.error(request, 'password doesnt match')
+        return redirect('/myapp/changepassword_get/')
+    data.set_password(newpassword)
+    data.save()
+    return redirect('/myapp/login_get/')
+
+
+
 
 
 def sentreply_get(request):
