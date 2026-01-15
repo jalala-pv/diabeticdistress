@@ -9,11 +9,11 @@
 <body>
   <div class="container">
     <h2 class="mb-4">View profile</h2>
-    <form>
+    <form >
       <div class="row mb-3">
         <label for="name" class="col-sm-4 ">Full Name</label>
         <div class="col-sm-8">
-
+        {{ data.name }}
         </div>
       </div>
 
@@ -21,7 +21,7 @@
         <label class="col-sm-4 ">Gender</label>
         <div class="col-sm-8">
           <div class="form-check form-check-inline">
-
+            {{ data.gender }}
           </div>
 
         </div>
@@ -30,56 +30,56 @@
       <div class="row mb-3">
         <label for="dob" class="col-sm-4 ">Date of Birth</label>
         <div class="col-sm-8">
-
+            {{ data.dob}}
         </div>
       </div>
 
       <div class="row mb-3">
         <label for="email" class="col-sm-4 ">Email address</label>
         <div class="col-sm-8">
-
+            {{ data.email }}
         </div>
       </div>
 
       <div class="row mb-3">
         <label for="phone" class="col-sm-4 ">Phone Number</label>
         <div class="col-sm-8">
-
+            {{ data.phone }}
         </div>
       </div>
 
       <div class="row mb-3">
         <label for="place" class="col-sm-4 ">Place</label>
         <div class="col-sm-8">
-
+            {{ data.place }}
         </div>
       </div>
 
       <div class="row mb-3">
         <label for="city" class="col-sm-4 ">City</label>
         <div class="col-sm-8">
-
+            {{ data.city }}
         </div>
       </div>
 
       <div class="row mb-3">
         <label for="state" class="col-sm-4 ">State</label>
         <div class="col-sm-8">
-
+            {{ data.state }}
         </div>
       </div>
 
       <div class="row mb-3">
         <label for="pincode" class="col-sm-4 ">Pincode</label>
         <div class="col-sm-8">
-
+            {{ data.pin }}
           </div>
       </div>
 
       <div class="row mb-3">
         <label for="photo" class="col-sm-4 ">Photo</label>
         <div class="col-sm-8">
-
+           <img src="{{ data.photo }}"height="100" width="100">
         </div>
       </div>
 

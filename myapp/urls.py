@@ -54,6 +54,8 @@ urlpatterns = [
 
     path('viewprofile_get/',views.viewprofile_get),
 
+    path('user_home/',views.user_home),
+
     path('viewreply_get/',views.viewreply_get),
 
     path('logout_get/',views.logout_get),

@@ -1,6 +1,8 @@
+from datetime import datetime
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
+from django.core.files.storage import FileSystemStorage
 from django.shortcuts import render, redirect
 
 
@@ -19,6 +21,9 @@ def login_post(request):
         login(request,user)
         if user.groups.filter(name='admin'):
             return redirect('/myapp/admin_home/')
+        elif user.groups.filter(name='user'):
+
+            return redirect('/myapp/user_home/')
         else:
             messages.error(request,'no such group')
             return redirect('/myapp/login_get/')
@@ -97,6 +102,8 @@ def viewuser_get(request):
 
 
 #U S E R
+def user_home(request):
+    return render(request, 'users/users_home.html')
 def editprofile_get(request):
     return render(request, 'users/editprofile.html')
 def editprofile_post(request):
@@ -109,13 +116,55 @@ def sentcomplaint_post(request):
 
 def signup_get(request):
     return render(request, 'users/signup.html')
-def signup_post(request):
 
-    
-    return
+def signup_post(request):
+    name=request.POST['fullname']
+    dob=request.POST['dob']
+    email=request.POST['email']
+    phone=request.POST['phoneno']
+    gender=request.POST['gender']
+    photo=request.FILES['photo']
+    place= request.POST['place']
+    city = request.POST['city']
+    pin = request.POST['pincode']
+    district = request.POST['district']
+    state = request.POST['state']
+    password=request.POST['password']
+    confirmpassword=request.POST['confirmpassword']
+
+    if password!=confirmpassword:
+        messages.error(request, 'password doesnt match')
+        return redirect('/myapp/signup_get/')
+
+    user=User.objects.create_user(username=email,password=password)
+    user.groups.add(Group.objects.get(name="user"))
+    user.save()
+
+    fs=FileSystemStorage()
+    date=datetime.now().strftime('%d-%M-%Y-%H-%M-%S')+'.jpg'
+    fs.save(date,photo)
+    path=fs.url(date)
+
+    u=Users()
+    u.name=name
+    u.dob=dob
+    u.email=email
+    u.phone=phone
+    u.gender=gender
+    u.photo=path
+    u.place=place
+    u.city=city
+    u.pin=pin
+    u.district=district
+    u.state=state
+    u.AUTHUSER=user
+    u.status="pending"
+    u.save()
+    return redirect('/myapp/login_get/')
 
 def viewprofile_get(request):
-    return render(request, 'users/viewprofile.html')
+    data=Users.objects.get(AUTHUSER=request.user)
+    return render(request, 'users/viewprofile.html',{'data':data})
 
 def viewreply_get(request):
     return render(request, 'users/viewreply.html')
