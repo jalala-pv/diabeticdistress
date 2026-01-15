@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect
 
 
 # Create your views here.
-from myapp.models import complaints
+from myapp.models import complaints, Users
 
 
 def login_get(request):
@@ -59,15 +59,16 @@ def changepassword_post(request):
 
 
 
-
-
-def sentreply_get(request):
+def sentreply_get(request,id):
+    return render(request, 'admins/sentreply.html',{'id':id})
+def sentreply_post(request):
     id = request.POST['id']
     reply = request.POST['reply']
-    return render(request, 'admins/sentreply.html')
-def sentreply_post(request):
-
-    return
+    data=complaints.objects.get(id=id)
+    data.reply=reply
+    data.status="replied"
+    data.save()
+    return redirect('/myapp/viewcomplaint_get/')
 
 def viewblockeduser_get(request):
     return render(request, 'admins/viewblockeduser.html')
@@ -80,7 +81,10 @@ def viewlogs_get(request):
     return render(request, 'admins/viewlogs.html')
 
 def viewuser_get(request):
-    return render(request, 'admins/viewuser.html')
+    data = Users.objects.all()
+    return render(request, 'admins/viewuser.html', {'Users': data})
+
+
 #U S E R
 def editprofile_get(request):
     return render(request, 'users/editprofile.html')

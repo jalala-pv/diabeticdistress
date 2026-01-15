@@ -48,7 +48,7 @@
             <td>{{i.status  }}</td>
             <td>
                 {% if i.status == 'pending' %}
-                <a class="btn btn-sm btn-primary">reply</a>
+                <a href="/myapp/sentreply_get/{{ i.id }}"class="btn btn-sm btn-primary">reply</a>
                 {% else %}
                 {{ i.reply }}
                 {% endif %}

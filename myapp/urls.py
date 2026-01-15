@@ -30,7 +30,7 @@ urlpatterns = [
     path('changepassword_get/',views.changepassword_get),
     path('changepassword_post/',views.changepassword_post),
 
-    path('sentreply_get/',views.sentreply_get),
+    path('sentreply_get/<id>',views.sentreply_get),
     path('sentreply_post/',views.sentreply_post),
 
     path('viewblockeduser_get/',views.viewblockeduser_get),

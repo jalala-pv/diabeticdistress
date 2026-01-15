@@ -8,9 +8,9 @@
 <body>
   <div class="container mt-5">
     <h4 class="mb-4">Send reply</h4>
-    <form>
-      
-
+      {% csrf_token %}
+    <form method="post" action="/myapp/sentreply_post/">
+        <input type="hidden"name="id"value="{{ id }}">
       <!-- Complaint Text -->
       <div class="mb-3">
         <label for="complaint" class="form-label">sent reply</label>

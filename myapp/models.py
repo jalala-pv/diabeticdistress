@@ -14,6 +14,7 @@ class Users(models.Model):
     pin=models.CharField(max_length=100)
     district=models.CharField(max_length=100)
     state=models.CharField(max_length=100)
+    status=models.CharField(max_length=100)
     AUTHUSER=models.OneToOneField(User,on_delete=models.CASCADE)
 
 
