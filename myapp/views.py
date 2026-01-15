@@ -1,5 +1,5 @@
 from django.contrib import messages
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 
@@ -25,6 +25,11 @@ def login_post(request):
     else:
         messages.error(request, 'no user found')
         return redirect('/myapp/login_get/')
+
+
+def logout_get(request):
+    logout(request)
+    return redirect('/myapp/login_get/')
 
 
 # u=User.objects.get(username='admin@gmail.com')
@@ -105,6 +110,8 @@ def sentcomplaint_post(request):
 def signup_get(request):
     return render(request, 'users/signup.html')
 def signup_post(request):
+
+    
     return
 
 def viewprofile_get(request):
