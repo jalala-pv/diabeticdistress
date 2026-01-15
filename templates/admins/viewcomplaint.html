@@ -39,14 +39,22 @@
         </thead>
         <tbody>
           <!-- Sample Data Rows -->
+          {% for i in complaint %}
           <tr>
-            <td>1</td>
-            <td>2025-07-25</td>
-            <td>MG Road</td>
-            <td>Water leakage near street 12</td>
-            <td>Pending</td>
-            <td><button class="btn btn-sm btn-primary">Reply</button></td>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ i.date }}</td>
+            <td>{{ i.USER.name }} </td>
+            <td>{{ i.complaint }}</td>
+            <td>{{i.status  }}</td>
+            <td>
+                {% if i.status == 'pending' %}
+                <a class="btn btn-sm btn-primary">reply</a>
+                {% else %}
+                {{ i.reply }}
+                {% endif %}
+            </td>
           </tr>
+          {% endfor %}
           <!-- Add more rows as needed -->
         </tbody>
       </table>
