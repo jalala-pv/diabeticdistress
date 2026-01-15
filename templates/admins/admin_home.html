@@ -18,7 +18,9 @@
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- DataTables CSS -->
+  <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet">
     <!-- Libraries Stylesheet -->
     <link href="/static/admin/lib/animate/animate.min.css" rel="stylesheet">
 
@@ -98,7 +100,7 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto py-0">
             <a href="index.html" class="nav-item nav-link active">Home</a>
-            <a href="about.html" class="nav-item nav-link">About</a>
+{#            <a href="about.html" class="nav-item nav-link">About</a>#}
 
             <!-- Service Dropdown -->
             <div class="nav-item dropdown">
@@ -110,29 +112,30 @@
             </div>
 
             <!-- Dentist Dropdown -->
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Dentist</a>
-                <div class="dropdown-menu m-0">
-                    <a href="team.html" class="dropdown-item">Dentists</a>
-                    <a href="dentist-detail.html" class="dropdown-item">Dentist Details</a>
-                </div>
-            </div>
+{#            <div class="nav-item dropdown">#}
+{#                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Dentist</a>#}
+{#                <div class="dropdown-menu m-0">#}
+{#                    <a href="team.html" class="dropdown-item">Dentists</a>#}
+{#                    <a href="dentist-detail.html" class="dropdown-item">Dentist Details</a>#}
+{#                </div>#}
+{#            </div>#}
 
             <!-- Pages Dropdown -->
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                <div class="dropdown-menu m-0">
-                    <a href="faq.html" class="dropdown-item">FAQs</a>
-                    <a href="pricing.html" class="dropdown-item">Pricing</a>
-                    <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                    <a href="appointment.html" class="dropdown-item">Appointment</a>
-                    <a href="404.html" class="dropdown-item">404 Error</a>
-                </div>
-            </div>
+{#            <div class="nav-item dropdown">#}
+{#                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>#}
+{#                <div class="dropdown-menu m-0">#}
+{#                    <a href="faq.html" class="dropdown-item">FAQs</a>#}
+{#                    <a href="pricing.html" class="dropdown-item">Pricing</a>#}
+{#                    <a href="testimonial.html" class="dropdown-item">Testimonial</a>#}
+{#                    <a href="appointment.html" class="dropdown-item">Appointment</a>#}
+{#                    <a href="404.html" class="dropdown-item">404 Error</a>#}
+{#                </div>#}
+{#            </div>#}
 
-            <a href="/myapp/viewcomplaint_get/" class="nav-item nav-link">Complaints</a>
             <a href="/myapp/viewlogs_get/" class="nav-item nav-link">Logs</a>
-            <a href="/myapp/viewuser_get/" class="nav-item nav-link">Users</a>
+{#            <a href="/myapp/viewuser_get/" class="nav-item nav-link">Users</a>#}
+                        <a href="/myapp/viewcomplaint_get/" class="nav-item nav-link">Complaints</a>
+
             <a href="/myapp/changepassword_get/" class="nav-item nav-link">Security</a>
         </div>
 
@@ -188,7 +191,8 @@
 
     <!-- About Start -->
     <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container">
+        <div class="container" id="a">
+            {% block body %}
             <div class="row g-5">
                 <div class="col-lg-7">
                     <div class="section-title mb-4">
@@ -215,6 +219,7 @@
                     </div>
                 </div>
             </div>
+            {% endblock%}
         </div>
     </div>
     <!-- About End -->
@@ -542,7 +547,11 @@
     <script src="/static/admin/lib/wow/wow.min.js"></script>
     <script src="/static/admin/lib/easing/easing.min.js"></script>
     <script src="/static/admin/lib/waypoints/waypoints.min.js"></script>
-
+{# <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>#}
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    {% block scripts %}
+    {% endblock %}
     <!-- Template Javascript -->
     <script src="/static/admin/js/main.js"></script>
 </body>
