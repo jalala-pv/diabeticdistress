@@ -35,6 +35,8 @@ urlpatterns = [
 
     path('viewblockeduser_get/',views.viewblockeduser_get),
 
+    path('blockeduser/<id>',views.blockeduser),
+
     path('viewcomplaint_get/',views.viewcomplaint_get),
 
     path('viewlogs_get/',views.viewlogs_get),

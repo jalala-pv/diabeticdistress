@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect
 
 
 # Create your views here.
-from myapp.models import complaints, Users
+from myapp.models import complaints, Users, logs
 
 
 def login_get(request):
@@ -74,13 +74,17 @@ def viewblockeduser_get(request):
     data = Users.objects.filter(status='blocked')
     return render(request, 'admins/viewblockeduser.html', {'Users': data})
 
+def blockeduser(request,id):
+    Users.objects.filter(id=id).update(status="blocked")
+    return redirect('/myapp/viewblockeduser_get/')
 
 def viewcomplaint_get(request):
     data=complaints.objects.all()
     return render(request, 'admins/viewcomplaint.html',{'complaint':data})
 
 def viewlogs_get(request):
-    return render(request, 'admins/viewlogs.html')
+    data = logs.objects.all()
+    return render(request, 'admins/viewlogs.html',{'logs':data})
 
 def viewuser_get(request):
     data = Users.objects.all()

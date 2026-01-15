@@ -10,7 +10,7 @@
 </head>
 <body>
   <div class="container mt-5">
-    <h3 class="mb-4">View Complaints</h3>
+    <h3 class="mb-4">View Logs</h3>
 
     <!-- Date Filter Inputs -->
     <div class="row mb-3">
@@ -32,37 +32,25 @@
             <th>id</th>
             <th>Date</th>
               <th>time</th>
-            <th>From user</th>
+              <th>From user</th>
             <th>result</th>
+
 
           </tr>
         </thead>
         <tbody>
           <!-- Sample Data Rows -->
+          {% for i in logs %}
           <tr>
-            <td>1</td>
-            <td>2025-07-25</td>
-            <td>MG Road</td>
-            <td>Water leakage near street 12</td>
-            <td>Pending</td>
-
+            <td>forloop.counter</td>
+            <td>{{ i.date }}</td>
+            <td>{{ i.time }}</td>
+            <td>{{ i.USER.name }}</td>
+            <td>{{ i.result }}</td>
           </tr>
-          <tr>
-            <td>2</td>
-            <td>2025-07-20</td>
-            <td>Anna Nagar</td>
-            <td>Streetlight not working</td>
-            <td>Resolved</td>
+          {% endfor %}
 
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>2025-07-18</td>
-            <td>Kaloor</td>
-            <td>Garbage not collected</td>
-            <td>Rejected</td>
 
-          </tr>
           <!-- Add more rows as needed -->
         </tbody>
       </table>
