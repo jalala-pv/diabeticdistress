@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8f398c07-4858-4b5b-89a8-5231c2575532" name="Default" comment="formsandmodelsscreated">
+    <list default="true" id="8f398c07-4858-4b5b-89a8-5231c2575532" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/diabeticdistress/settings.py" afterPath="$PROJECT_DIR$/diabeticdistress/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/diabeticdistress/urls.py" afterPath="$PROJECT_DIR$/diabeticdistress/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/admins/admin_home.html" afterPath="$PROJECT_DIR$/templates/admins/admin_home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/admins/changepassword.html" afterPath="$PROJECT_DIR$/templates/admins/changepassword.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/admins/sentreply.html" afterPath="$PROJECT_DIR$/templates/admins/sentreply.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/admins/viewblockeduser.html" afterPath="$PROJECT_DIR$/templates/admins/viewblockeduser.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/admins/viewcomplaint.html" afterPath="$PROJECT_DIR$/templates/admins/viewcomplaint.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/admins/viewlogs.html" afterPath="$PROJECT_DIR$/templates/admins/viewlogs.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/admins/viewuser.html" afterPath="$PROJECT_DIR$/templates/admins/viewuser.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -803,7 +794,14 @@
       <option name="project" value="LOCAL" />
       <updated>1768456830876</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="searchinform">
+      <created>1768458647544</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1768458647544</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -866,7 +864,8 @@
     <MESSAGE value="viewuser" />
     <MESSAGE value="blockedusers" />
     <MESSAGE value="formsandmodelsscreated" />
-    <option name="LAST_COMMIT_MESSAGE" value="formsandmodelsscreated" />
+    <MESSAGE value="searchinform" />
+    <option name="LAST_COMMIT_MESSAGE" value="searchinform" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
