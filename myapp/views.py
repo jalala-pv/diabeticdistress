@@ -71,7 +71,9 @@ def sentreply_post(request):
     return redirect('/myapp/viewcomplaint_get/')
 
 def viewblockeduser_get(request):
-    return render(request, 'admins/viewblockeduser.html')
+    data = Users.objects.filter(status='blocked')
+    return render(request, 'admins/viewblockeduser.html', {'Users': data})
+
 
 def viewcomplaint_get(request):
     data=complaints.objects.all()

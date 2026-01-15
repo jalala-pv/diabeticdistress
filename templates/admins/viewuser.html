@@ -37,7 +37,14 @@
             <td>{{ i.gender }}</td>
            <td><img src="{{ i.photo }}" class="img-thumbnail" width="50" /></td>
           <td>{{ i.place }},{{ i.city }},<br>{{ i.pin }},{{ i.district }}<br>{{ i.state }}</td>
-            <td><a href=""class="btn btn-danger">block</a></td>
+            <td>
+                 {% if i.status == 'pending' %}
+                <a href="" class="btn btn-danger">block</a>
+                {% else %}
+                {{ i.status }}
+                {% endif %}
+
+            </td>
         </tr>
           {% endfor %}
         <!-- Add more rows dynamically from backend -->
