@@ -1,7 +1,217 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8f398c07-4858-4b5b-89a8-5231c2575532" name="Default" comment="">
+    <list default="true" id="8f398c07-4858-4b5b-89a8-5231c2575532" name="Default" comment="userstemplatehome">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/media/15-47-2026-13-47-44.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/media/15-49-2026-13-49-30.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/css/ajax-loader.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/fonts/flaticon/font/Flaticon.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/fonts/flaticon/font/Flaticon.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/fonts/flaticon/font/Flaticon.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/fonts/flaticon/license/license.pdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/fonts/icomoon/icomoon.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/fonts/icomoon/icomoon.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/fonts/icomoon/icomoon.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/fonts/ionicons/fonts/ionicons.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/fonts/ionicons/fonts/ionicons.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/fonts/ionicons/fonts/ionicons.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/fonts/ionicons/fonts/ionicons.woff2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/fonts/open-iconic/open-iconic.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/fonts/open-iconic/open-iconic.otf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/fonts/open-iconic/open-iconic.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/fonts/open-iconic/open-iconic.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/about.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/bg_1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/bg_2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/bg_3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/bg_4.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/burger-1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/burger-2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/burger-3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/dessert-1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/dessert-2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/dessert-3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/dessert-4.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/dessert-5.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/dessert-6.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/dish-1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/dish-11.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/dish-2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/dish-3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/dish-4.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/dish-5.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/dish-6.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/dish-7.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/dish-8.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/drink-1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/drink-2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/drink-3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/drink-4.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/drink-5.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/drink-6.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/drink-7.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/drink-8.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/drink-9.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/gallery-1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/gallery-2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/gallery-3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/gallery-4.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/image_1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/image_2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/image_3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/image_4.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/image_5.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/image_6.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/loc.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/menu-1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/menu-2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/menu-3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/menu-4.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/person_2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/person_3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/images/person_4.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/about.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/blog-single.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/blog.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/cart.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/checkout.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/contact.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/css/animate.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/css/aos.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/css/bootstrap-datepicker.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/css/bootstrap.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/css/bootstrap/bootstrap-grid.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/css/bootstrap/bootstrap-reboot.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/css/css/bootstrap-reboot.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/css/css/mixins/_text-hide.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/css/flaticon.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/css/icomoon.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/css/ionicons.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/css/jquery.timepicker.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/css/magnific-popup.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/css/open-iconic-bootstrap.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/css/owl.carousel.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/css/owl.theme.default.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/css/style.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/fonts/flaticon/backup.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/fonts/flaticon/font/Flaticon.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/fonts/flaticon/font/_flaticon.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/fonts/flaticon/font/flaticon.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/fonts/flaticon/font/flaticon.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/fonts/icomoon/icomoon.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/fonts/ionicons/css/_ionicons.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/fonts/ionicons/css/ionicons.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/fonts/ionicons/fonts/ionicons.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/fonts/open-iconic/open-iconic.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/js/aos.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/js/bootstrap-datepicker.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/js/bootstrap.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/js/google-map.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/js/jquery-3.2.1.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/js/jquery-migrate-3.0.1.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/js/jquery.animateNumber.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/js/jquery.easing.1.3.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/js/jquery.magnific-popup.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/js/jquery.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/js/jquery.stellar.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/js/jquery.timepicker.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/js/jquery.waypoints.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/js/main.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/js/owl.carousel.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/js/popper.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/js/range.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/js/scrollax.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/menu.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/prepros-6.config" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/product-single.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/_alert.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/_badge.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/_breadcrumb.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/_button-group.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/_buttons.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/_card.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/_carousel.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/_close.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/_code.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/_custom-forms.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/_dropdown.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/_forms.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/_functions.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/_grid.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/_images.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/_input-group.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/_jumbotron.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/_list-group.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/_media.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/_mixins.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/_modal.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/_nav.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/_navbar.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/_pagination.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/_popover.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/_print.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/_progress.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/_reboot.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/_root.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/_tables.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/_tooltip.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/_transitions.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/_type.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/_utilities.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/_variables.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/bootstrap-grid.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/bootstrap-reboot.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/bootstrap.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/mixins/_alert.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/mixins/_background-variant.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/mixins/_badge.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/mixins/_border-radius.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/mixins/_box-shadow.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/mixins/_breakpoints.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/mixins/_buttons.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/mixins/_caret.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/mixins/_clearfix.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/mixins/_float.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/mixins/_forms.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/mixins/_gradients.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/mixins/_grid-framework.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/mixins/_grid.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/mixins/_hover.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/mixins/_image.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/mixins/_list-group.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/mixins/_lists.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/mixins/_nav-divider.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/mixins/_pagination.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/mixins/_reset-text.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/mixins/_resize.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/mixins/_screen-reader.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/mixins/_size.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/mixins/_table-row.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/mixins/_text-emphasis.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/mixins/_text-hide.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/mixins/_text-truncate.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/mixins/_transition.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/mixins/_visibility.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/utilities/_align.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/utilities/_background.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/utilities/_borders.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/utilities/_clearfix.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/utilities/_display.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/utilities/_embed.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/utilities/_flex.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/utilities/_float.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/utilities/_position.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/utilities/_screenreaders.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/utilities/_shadows.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/utilities/_sizing.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/utilities/_spacing.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/utilities/_text.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/bootstrap/utilities/_visibility.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/scss/style.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/services.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myapp/static/users/shop.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/users/users_home.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,160 +226,170 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.597193">
+    <splitter split-orientation="horizontal" split-proportion="0.87649125">
       <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-          <file leaf-file-name="viewuser.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/templates/admins/viewuser.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="250">
-                  <caret line="10" column="8" lean-forward="false" selection-start-line="0" selection-start-column="2" selection-end-line="71" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="sentreply.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/templates/admins/sentreply.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="250">
-                  <caret line="12" column="19" lean-forward="false" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
-                  <folding>
-                    <marker date="1768457702948" expanded="true" signature="37:1042" ph="..." />
-                    <marker date="1768457702948" expanded="true" signature="48:234" ph="..." />
-                    <marker date="1768457702948" expanded="true" signature="245:1030" ph="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="changepassword.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/templates/admins/changepassword.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1150">
-                  <caret line="46" column="14" lean-forward="true" selection-start-line="46" selection-start-column="14" selection-end-line="46" selection-end-column="14" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/myapp/views.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="250">
-                  <caret line="85" column="12" lean-forward="false" selection-start-line="85" selection-start-column="12" selection-end-line="85" selection-end-column="12" />
-                  <folding>
-                    <element signature="e#0#35#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="viewblockeduser.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/templates/admins/viewblockeduser.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="300">
-                  <caret line="57" column="20" lean-forward="true" selection-start-line="55" selection-start-column="17" selection-end-line="57" selection-end-column="20" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/diabeticdistress/urls.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="311">
-                  <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-                  <folding>
-                    <element signature="e#655#687#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/diabeticdistress/settings.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="336">
-                  <caret line="124" column="41" lean-forward="true" selection-start-line="124" selection-start-column="41" selection-end-line="124" selection-end-column="41" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="admin_home.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/templates/admins/admin_home.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="212">
-                  <caret line="552" column="4" lean-forward="false" selection-start-line="552" selection-start-column="4" selection-end-line="552" selection-end-column="4" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="viewcomplaint.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/templates/admins/viewcomplaint.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="100">
-                  <caret line="45" column="35" lean-forward="false" selection-start-line="45" selection-start-column="19" selection-end-line="45" selection-end-column="35" />
-                  <folding>
-                    <marker date="1768458586494" expanded="true" signature="37:3251" ph="..." />
-                    <marker date="1768458586494" expanded="true" signature="48:401" ph="..." />
-                    <marker date="1768458586494" expanded="true" signature="412:3239" ph="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="viewlogs.html" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/templates/admins/viewlogs.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="50">
-                  <caret line="65" column="19" lean-forward="true" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="19" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
+        <splitter split-orientation="horizontal" split-proportion="0.6826923">
+          <split-first>
+            <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
+              <file leaf-file-name="viewuser.html" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/templates/admins/viewuser.html">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="250">
+                      <caret line="46" column="27" lean-forward="false" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/diabeticdistress/urls.py">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="332">
+                      <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+                      <folding>
+                        <element signature="e#655#687#0" expanded="true" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/templates/login.html">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="562">
+                      <caret line="126" column="37" lean-forward="false" selection-start-line="126" selection-start-column="33" selection-end-line="126" selection-end-column="37" />
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/myapp/urls.py">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="111">
+                      <caret line="45" column="29" lean-forward="false" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="29" />
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="admin_home.html" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/templates/admins/admin_home.html">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="137">
+                      <caret line="141" column="35" lean-forward="false" selection-start-line="141" selection-start-column="35" selection-end-line="141" selection-end-column="35" />
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/myapp/views.py">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="257">
+                      <caret line="148" column="43" lean-forward="false" selection-start-line="148" selection-start-column="43" selection-end-line="148" selection-end-column="43" />
+                      <folding>
+                        <element signature="e#0#29#0" expanded="true" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="aos.js" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/myapp/static/users/js/aos.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="0">
+                      <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="users_home.html" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/templates/users/users_home.html">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="144">
+                      <caret line="54" column="67" lean-forward="false" selection-start-line="54" selection-start-column="67" selection-end-line="54" selection-end-column="67" />
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="editprofile.html" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/templates/users/editprofile.html">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="200">
+                      <caret line="11" column="54" lean-forward="false" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="viewprofile.html" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/templates/users/viewprofile.html">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="186">
+                      <caret line="34" column="12" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="96" selection-end-column="7" />
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+            </leaf>
+          </split-first>
+          <split-second>
+            <leaf>
+              <file leaf-file-name="viewprofile.html" pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/templates/users/viewprofile.html">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="426">
+                      <caret line="89" column="41" lean-forward="false" selection-start-line="89" selection-start-column="26" selection-end-line="89" selection-end-column="41" />
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/myapp/models.py">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="325">
+                      <caret line="17" column="12" lean-forward="false" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="12" />
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+            </leaf>
+          </split-second>
+        </splitter>
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="viewuser.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="viewuser.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/templates/admins/viewuser.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="61">
-                  <caret line="61" column="23" lean-forward="false" selection-start-line="61" selection-start-column="23" selection-end-line="61" selection-end-column="23" />
+                <state relative-caret-position="157">
+                  <caret line="64" column="3" lean-forward="false" selection-start-line="64" selection-start-column="3" selection-end-line="64" selection-end-column="3" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="viewblockeduser.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/templates/admins/viewblockeduser.html">
+          <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/myapp/models.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="111">
-                  <caret line="59" column="14" lean-forward="false" selection-start-line="59" selection-start-column="14" selection-end-line="59" selection-end-column="14" />
+                <state relative-caret-position="400">
+                  <caret line="17" column="12" lean-forward="false" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="12" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="viewcomplaint.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/templates/admins/viewcomplaint.html">
+          <file leaf-file-name="signup.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/templates/users/signup.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="475">
-                  <caret line="98" column="18" lean-forward="false" selection-start-line="98" selection-start-column="18" selection-end-line="98" selection-end-column="18" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="viewlogs.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/templates/admins/viewlogs.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="25">
-                  <caret line="1" column="10" lean-forward="false" selection-start-line="95" selection-start-column="2" selection-end-line="96" selection-end-column="9" />
+                <state relative-caret-position="150">
+                  <caret line="12" column="24" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="122" selection-end-column="7" />
                   <folding />
                 </state>
               </provider>
@@ -181,8 +401,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>css</find>
-      <find>js</find>
       <find>lib</find>
       <find>assets</find>
       <find>forms</find>
@@ -190,38 +408,51 @@
       <find>img</find>
       <find>script.js</find>
       <find>style.css</find>
+      <find>city</find>
+      <find>pin</find>
+      <find>state</find>
+      <find>form</find>
+      <find>fonts</find>
+      <find>images</find>
+      <find>js</find>
+      <find>css</find>
+      <find>contact</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="PUSH_TAGS">
+      <GitPushTagMode />
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/templates/users/forgetpassword.html" />
-        <option value="$PROJECT_DIR$/templates/users/viewprofile.html" />
         <option value="$PROJECT_DIR$/templates/users/viewreply.html" />
         <option value="$PROJECT_DIR$/templates/forgetpassword.html" />
-        <option value="$PROJECT_DIR$/templates/users/signup.html" />
         <option value="$PROJECT_DIR$/templates/users/sentcomplaint.html" />
         <option value="$PROJECT_DIR$/templates/users/ratingandreview.html" />
-        <option value="$PROJECT_DIR$/templates/users/editprofile.html" />
         <option value="$PROJECT_DIR$/templates/admin_login.html" />
         <option value="$PROJECT_DIR$/myapp/static/Login/script.js" />
         <option value="$PROJECT_DIR$/myapp/static/Login/style.css" />
-        <option value="$PROJECT_DIR$/templates/login.html" />
-        <option value="$PROJECT_DIR$/myapp/models.py" />
-        <option value="$PROJECT_DIR$/myapp/urls.py" />
-        <option value="$PROJECT_DIR$/myapp/views.py" />
         <option value="$PROJECT_DIR$/templates/admins/sentreply.html" />
         <option value="$PROJECT_DIR$/templates/admins/changepassword.html" />
-        <option value="$PROJECT_DIR$/templates/admins/admin_home.html" />
         <option value="$PROJECT_DIR$/templates/admins/viewlogs.html" />
         <option value="$PROJECT_DIR$/diabeticdistress/settings.py" />
         <option value="$PROJECT_DIR$/diabeticdistress/urls.py" />
         <option value="$PROJECT_DIR$/templates/admins/viewblockeduser.html" />
         <option value="$PROJECT_DIR$/templates/admins/viewcomplaint.html" />
         <option value="$PROJECT_DIR$/templates/admins/viewuser.html" />
+        <option value="$PROJECT_DIR$/templates/admins/admin_home.html" />
+        <option value="$PROJECT_DIR$/myapp/models.py" />
+        <option value="$PROJECT_DIR$/templates/login.html" />
+        <option value="$PROJECT_DIR$/templates/users/signup.html" />
+        <option value="$PROJECT_DIR$/templates/users/users_home.html" />
+        <option value="$PROJECT_DIR$/templates/users/viewprofile.html" />
+        <option value="$PROJECT_DIR$/templates/users/editprofile.html" />
+        <option value="$PROJECT_DIR$/myapp/urls.py" />
+        <option value="$PROJECT_DIR$/myapp/views.py" />
       </list>
     </option>
   </component>
@@ -378,102 +609,6 @@
               <option name="myItemId" value="static" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Login" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="diabeticdistress" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="diabeticdistress" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="diabeticdistress" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="diabeticdistress" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="diabeticdistress" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="diabeticdistress" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="diabeticdistress" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="diabeticdistress" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -502,11 +637,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\pvjal\PycharmProjects\diabeticdistress\templates\users" />
+      <recent name="C:\Users\pvjal\PycharmProjects\diabeticdistress\myapp\static" />
       <recent name="C:\Users\pvjal\PycharmProjects\diabeticdistress\myapp\static\Login" />
       <recent name="C:\Users\pvjal\PycharmProjects\diabeticdistress\myapp\static\bg" />
       <recent name="C:\Users\pvjal\PycharmProjects\diabeticdistress\templates\admins" />
-      <recent name="C:\Users\pvjal\PycharmProjects\diabeticdistress\myapp\static\admin" />
-      <recent name="C:\Users\pvjal\PycharmProjects\diabeticdistress\templates\users" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\pvjal\PycharmProjects\diabeticdistress\templates" />
@@ -801,18 +936,55 @@
       <option name="project" value="LOCAL" />
       <updated>1768458647544</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="searchinform">
+      <created>1768458790241</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1768458790241</updated>
+    </task>
+    <task id="LOCAL-00011" summary="logout">
+      <created>1768459566091</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1768459566091</updated>
+    </task>
+    <task id="LOCAL-00012" summary="viewprofile">
+      <created>1768468241333</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1768468241333</updated>
+    </task>
+    <task id="LOCAL-00013" summary="editprofile">
+      <created>1768469761567</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1768469761567</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
+  </component>
+  <component name="TodoView" selected-index="4">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1038" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32978722" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3427896" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3427896" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32978722" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22972973" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -865,7 +1037,11 @@
     <MESSAGE value="blockedusers" />
     <MESSAGE value="formsandmodelsscreated" />
     <MESSAGE value="searchinform" />
-    <option name="LAST_COMMIT_MESSAGE" value="searchinform" />
+    <MESSAGE value="logout" />
+    <MESSAGE value="viewprofile" />
+    <MESSAGE value="editprofile" />
+    <MESSAGE value="userstemplatehome" />
+    <option name="LAST_COMMIT_MESSAGE" value="userstemplatehome" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -880,22 +1056,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/users/editprofile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="15" column="16" lean-forward="false" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/admins/viewuser.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1100">
-          <caret line="44" column="47" lean-forward="false" selection-start-line="44" selection-start-column="47" selection-end-line="44" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/admins/viewcomplaint.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="650">
@@ -1027,13 +1187,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/users/viewprofile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1975">
-          <caret line="79" column="45" lean-forward="false" selection-start-line="79" selection-start-column="45" selection-end-line="79" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/users/forgetpassword.html" />
     <entry file="file://$PROJECT_DIR$/manage.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -1057,24 +1210,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/users/editprofile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="15" column="16" lean-forward="false" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myapp/static/Login/assets/js/contact-form.js" />
     <entry file="file://$PROJECT_DIR$/templates/admin_login.html" />
-    <entry file="file://$PROJECT_DIR$/templates/users/signup.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2500">
-          <caret line="100" column="16" lean-forward="false" selection-start-line="100" selection-start-column="11" selection-end-line="100" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/forgetpassword.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="750">
@@ -1131,32 +1268,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2025">
-          <caret line="84" column="53" lean-forward="false" selection-start-line="84" selection-start-column="53" selection-end-line="84" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myapp/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="37" column="47" lean-forward="false" selection-start-line="37" selection-start-column="47" selection-end-line="37" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myapp/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="85" column="12" lean-forward="false" selection-start-line="85" selection-start-column="12" selection-end-line="85" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/admins/sentreply.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
@@ -1169,14 +1280,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myapp/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="27" column="8" lean-forward="false" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/admins/changepassword.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1150">
@@ -1185,36 +1288,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/admins/admin_home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="552" column="4" lean-forward="false" selection-start-line="552" selection-start-column="4" selection-end-line="552" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/diabeticdistress/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
-          <caret line="124" column="41" lean-forward="true" selection-start-line="124" selection-start-column="41" selection-end-line="124" selection-end-column="41" />
+          <caret line="124" column="41" lean-forward="false" selection-start-line="124" selection-start-column="41" selection-end-line="124" selection-end-column="41" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/diabeticdistress/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding>
-            <element signature="e#655#687#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/admins/viewblockeduser.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="59" column="14" lean-forward="false" selection-start-line="59" selection-start-column="14" selection-end-line="59" selection-end-column="14" />
+        <state relative-caret-position="300">
+          <caret line="57" column="20" lean-forward="false" selection-start-line="55" selection-start-column="17" selection-end-line="57" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -1235,11 +1320,103 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/diabeticdistress/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding>
+            <element signature="e#655#687#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/admins/viewuser.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="61">
-          <caret line="61" column="23" lean-forward="false" selection-start-line="61" selection-start-column="23" selection-end-line="61" selection-end-column="23" />
+        <state relative-caret-position="250">
+          <caret line="46" column="27" lean-forward="false" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="562">
+          <caret line="126" column="37" lean-forward="false" selection-start-line="126" selection-start-column="33" selection-end-line="126" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myapp/static/users/js/aos.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admins/admin_home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="141" column="35" lean-forward="false" selection-start-line="141" selection-start-column="35" selection-end-line="141" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myapp/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="17" column="12" lean-forward="false" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/users/users_home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="54" column="67" lean-forward="false" selection-start-line="54" selection-start-column="67" selection-end-line="54" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/users/signup.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="12" column="24" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="122" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/users/viewprofile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="34" column="12" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="96" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/users/editprofile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="11" column="54" lean-forward="false" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myapp/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="45" column="29" lean-forward="false" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myapp/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="148" column="43" lean-forward="false" selection-start-line="148" selection-start-column="43" selection-end-line="148" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
