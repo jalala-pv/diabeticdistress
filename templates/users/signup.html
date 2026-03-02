@@ -1,123 +1,2331 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Registration Form</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
- 
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #19438c, #1b708c, #415a77);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            color: #e0e7ff;
+        }
+
+        .card {
+            background: rgba(15, 32, 39, 0.92);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(100, 150, 255, 0.18);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 480px;
+            padding: 2.25rem 1.75rem;
+            color: #e0e7ff;
+        }
+
+        h3 {
+            color: #60a5fa;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.75rem;
+        }
+
+        .form-label {
+            color: #94a3b8;
+            font-weight: 500;
+            margin-bottom: 0.45rem;
+            display: block;
+        }
+
+        .form-label span {
+            color: #f87171;
+        }
+
+        .form-control {
+            background-color: rgba(30, 58, 138, 0.4);
+            border: 1px solid rgba(100, 150, 255, 0.35);
+            color: #e0f2fe;
+            border-radius: 8px;
+            padding: 0.65rem 1rem;
+            transition: all 0.2s ease;
+        }
+
+        .form-control:focus {
+            background-color: rgba(30, 58, 138, 0.55);
+            border-color: #60a5fa;
+            box-shadow: 0 0 0 0.25rem rgba(96, 165, 250, 0.25);
+            color: #e0f2fe;
+        }
+
+        .form-control::placeholder {
+            color: rgba(224, 231, 255, 0.45);
+        }
+
+        .form-control.is-valid {
+            border-color: #4ade80;
+            background-color: rgba(34, 197, 94, 0.12);
+        }
+
+        .form-control.is-invalid {
+            border-color: #f87171;
+            background-color: rgba(239, 68, 68, 0.12);
+        }
+
+        .error-text {
+            color: #fca5a5;
+            font-size: 0.875rem;
+            margin-top: 0.35rem;
+            display: none;
+        }
+
+        .error-text.show {
+            display: block;
+        }
+
+        /* Gender radio styling */
+        .radio-group {
+            display: flex;
+            gap: 2.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .radio-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .radio-wrapper input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .radio-wrapper label {
+            position: relative;
+            padding-left: 32px;
+            cursor: pointer;
+            color: #cbd5e1;
+            font-weight: 500;
+            user-select: none;
+        }
+
+        .radio-wrapper label::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            border: 2px solid #60a5fa;
+            border-radius: 50%;
+            background: rgba(96, 165, 250, 0.1);
+            transition: all 0.2s ease;
+        }
+
+        .radio-wrapper label::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            transform: translateY(-50%) scale(0);
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #60a5fa;
+            transition: all 0.2s ease;
+        }
+
+        .radio-wrapper input:checked + label::before {
+            border-color: #60a5fa;
+            background: rgba(96, 165, 250, 0.25);
+        }
+
+        .radio-wrapper input:checked + label::after {
+            transform: translateY(-50%) scale(1);
+        }
+
+        .radio-wrapper:hover label::before {
+            border-color: #93c5fd;
+            background: rgba(147, 197, 253, 0.15);
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, #3b82f6, #60a5fa);
+            border: none;
+            border-radius: 10px;
+            padding: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.4px;
+            transition: all 0.25s ease;
+            margin-top: 1.25rem;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(90deg, #2563eb, #3b82f6);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.35);
+        }
+
+        input[type="file"] {
+            color: #e0f2fe;
+        }
+
+        input[type="file"]::-webkit-file-upload-button {
+            background: rgba(59, 130, 246, 0.25);
+            color: #60a5fa;
+            border: 1px solid rgba(96, 165, 250, 0.4);
+            border-radius: 6px;
+            padding: 0.4rem 0.9rem;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h2 class="mb-4">Registration Form</h2>
-    <form method="post"action="/myapp/signup_post/" enctype="multipart/form-data">
-        {% csrf_token %}      <div class="row mb-3">
-        <label for="name" class="col-sm-4 ">Full Name</label>
-        <div class="col-sm-8">
-          <input type="text" name ="fullname" class="form-control" id="name" required>
-        </div>
-      </div>
 
+<div class="card shadow">
+    <h3 class="text-center">Create Account</h3>
 
-      <div class="row mb-3">
-        <label class="col-sm-4 ">Gender</label>
-        <div class="col-sm-8">
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="gender" value="male" id="male" required>
-            <label class="form-check-label" for="male">Male</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="gender" value="female" id="female" required>
-            <label class="form-check-label" for="female">Female</label>
-          </div>
-        </div>
-      </div>
+    <form method="post" action="/myapp/signup_post/" enctype="multipart/form-data" id="registrationForm">
+        {% csrf_token %}
 
-      <div class="row mb-3">
-        <label for="dob" class="col-sm-4 ">Date of Birth</label>
-        <div class="col-sm-8">
-          <input type="date" class="form-control" name="dob" id="dob" required>
+        <!-- Full Name -->
+        <div class="mb-3">
+            <label class="form-label">Full Name</label>
+            <input type="text" name="fullname" class="form-control" id="fullname" placeholder="John Doe">
+            <div class="error-text" id="fullnameError">Name must contain only letters and spaces</div>
         </div>
-      </div>
 
-      <div class="row mb-3">
-        <label for="email" class="col-sm-4 ">Email address</label>
-        <div class="col-sm-8">
-          <input type="email" class="form-control" id="email" name="email"required>
+        <!-- Gender -->
+        <div class="mb-3">
+            <label class="form-label">Gender <span>*</span></label>
+            <div class="radio-group">
+                <div class="radio-wrapper">
+                    <input type="radio" name="gender" value="male" id="male" required>
+                    <label for="male">Male</label>
+                </div>
+                <div class="radio-wrapper">
+                    <input type="radio" name="gender" value="female" id="female">
+                    <label for="female">Female</label>
+                </div>
+            </div>
         </div>
-      </div>
 
-      <div class="row mb-3">
-        <label for="phone" class="col-sm-4 ">Phone Number</label>
-        <div class="col-sm-8">
-          <input type="tel" pattern="[0-9]{10}" class="form-control" id="phone" name="phoneno"required>
+        <!-- Email -->
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="text" name="email" class="form-control" id="email" placeholder="example@gmail.com">
+            <div class="error-text" id="emailError">Email must be a valid @gmail.com address</div>
         </div>
-      </div>
 
-      <div class="row mb-3">
-        <label for="place" class="col-sm-4 ">Place</label>
-        <div class="col-sm-8">
-          <input type="text" class="form-control" id="place" name="place"required>
+        <!-- Phone -->
+        <div class="mb-3">
+            <label class="form-label">Phone Number</label>
+            <input type="text" name="phoneno" class="form-control" id="phone" placeholder="9876543210">
+            <div class="error-text" id="phoneError">Phone must be exactly 10 digits</div>
         </div>
-      </div>
 
-      <div class="row mb-3">
-        <label for="city" class="col-sm-4 ">City</label>
-        <div class="col-sm-8">
-          <input type="text" class="form-control" id="city"name="city" required>
+        <!-- Pincode -->
+        <div class="mb-3">
+            <label class="form-label">Pincode</label>
+            <input type="text" name="pincode" class="form-control" id="pincode" placeholder="682001">
+            <div class="error-text" id="pincodeError">Pincode must be exactly 6 digits</div>
         </div>
-      </div>
-        <div class="row mb-3">
-        <label for="city" class="col-sm-4 ">District</label>
-        <div class="col-sm-8">
-          <input type="text" class="form-control" id="city"name="district" required>
-        </div>
-      </div>
 
-      <div class="row mb-3">
-        <label for="state" class="col-sm-4 ">State</label>
-        <div class="col-sm-8">
-          <input type="text" class="form-control" id="state" name="state"required>
+        <!-- Place / Area / Locality -->
+        <div class="mb-3">
+            <label class="form-label">Place / Area / Locality</label>
+            <input type="text" name="place" class="form-control" id="place" placeholder="e.g. Kakkanad, MG Road, XYZ Colony">
+            <div class="error-text" id="placeError">Please enter a valid place/area (letters, numbers, spaces & common symbols allowed)</div>
         </div>
-      </div>
 
-      <div class="row mb-3">
-        <label for="pincode" class="col-sm-4 ">Pincode</label>
-        <div class="col-sm-8">
-          <input type="text" pattern="[0-9]{6}" class="form-control" id="pincode" name="pincode"required>
+        <!-- City / Town / Village -->
+        <div class="mb-3">
+            <label class="form-label">City / Town / Village</label>
+            <input type="text" name="city" class="form-control" id="city" placeholder="e.g. Kochi, Thiruvananthapuram">
+            <div class="error-text" id="cityError">Please enter city/town/village name (letters & spaces only)</div>
         </div>
-      </div>
 
-      <div class="row mb-3">
-        <label for="photo" class="col-sm-4 ">Upload Photo</label>
-        <div class="col-sm-8">
-          <input type="file" class="form-control" id="photo"name="photo" accept="image/*" required>
+        <!-- District -->
+        <div class="mb-3">
+            <label class="form-label">District</label>
+            <input type="text" name="district" class="form-control" id="district" placeholder="e.g. Ernakulam, Thrissur">
+            <div class="error-text" id="districtError">Please enter district name (letters & spaces only)</div>
         </div>
-      </div>
 
-      <div class="row mb-3">
-        <label for="password" class="col-sm-4 ">Password</label>
-        <div class="col-sm-8">
-          <input type="password" class="form-control" id="password" name="password"minlength="6" required>
+        <!-- State -->
+        <div class="mb-3">
+            <label class="form-label">State</label>
+            <input type="text" name="state" class="form-control" id="state" placeholder="e.g. Kerala, Tamil Nadu">
+            <div class="error-text" id="stateError">Please enter state name (letters & spaces only)</div>
         </div>
-      </div>
 
-      <div class="row mb-3">
-        <label for="confirmPassword" class="col-sm-4 ">Confirm Password</label>
-        <div class="col-sm-8">
-          <input type="password" class="form-control" id="confirmPassword" name="confirmpassword"required>
+        <!-- Date of Birth -->
+        <div class="mb-3">
+            <label class="form-label">Date of Birth</label>
+            <input type="date" name="dob" class="form-control" id="dob">
+            <div class="error-text" id="dobError">You must be at least 18 years old</div>
         </div>
-      </div>
 
-      <div class="row mb-3">
-        <div class="offset-sm-4 col-sm-8">
-          <button type="submit" class="btn btn-primary">Register</button>
+        <!-- Password -->
+        <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input type="password" name="password" class="form-control" id="password" placeholder="••••••••">
+            <div class="error-text" id="passwordError">Password must be at least 6 characters</div>
         </div>
-      </div>
+
+        <!-- Confirm Password -->
+        <div class="mb-3">
+            <label class="form-label">Confirm Password</label>
+            <input type="password" name="confirmpassword" class="form-control" id="confirmPassword" placeholder="••••••••">
+            <div class="error-text" id="confirmPasswordError">Passwords do not match</div>
+        </div>
+
+        <!-- Photo Upload -->
+        <div class="mb-4">
+            <label class="form-label">Upload Photo</label>
+            <input type="file" name="photo" class="form-control" id="photo" accept=".jpg,.jpeg,.png">
+            <div class="error-text" id="photoError">Only JPG, JPEG, PNG allowed</div>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Register</button>
     </form>
-      {% for k in messages %}
-      {{ k }}
-      {% endfor %}
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</div>
+
+<script>
+// Your existing validation code remains completely unchanged
+document.getElementById('registrationForm').addEventListener('submit', function(e) {
+    let isValid = true;
+    document.querySelectorAll('.error-text').forEach(el => el.classList.remove('show'));
+    document.querySelectorAll('.form-control').forEach(el => {
+        el.classList.remove('is-invalid', 'is-valid');
+    });
+
+    // Name
+    const fullname = document.getElementById('fullname').value.trim();
+    const namePattern = /^[A-Za-z\s]+$/;
+    if (!namePattern.test(fullname)) {
+        document.getElementById('fullnameError').classList.add('show');
+        document.getElementById('fullname').classList.add('is-invalid');
+        isValid = false;
+    } else {
+        document.getElementById('fullname').classList.add('is-valid');
+    }
+
+    // Gmail only
+    const email = document.getElementById('email').value.trim();
+    const gmailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+    if (!gmailPattern.test(email)) {
+        document.getElementById('emailError').classList.add('show');
+        document.getElementById('email').classList.add('is-invalid');
+        isValid = false;
+    } else {
+        document.getElementById('email').classList.add('is-valid');
+    }
+
+    // Phone
+    const phone = document.getElementById('phone').value.trim();
+    if (!/^[0-9]{10}$/.test(phone)) {
+        document.getElementById('phoneError').classList.add('show');
+        document.getElementById('phone').classList.add('is-invalid');
+        isValid = false;
+    } else {
+        document.getElementById('phone').classList.add('is-valid');
+    }
+
+    // Pincode
+    const pincode = document.getElementById('pincode').value.trim();
+    if (!/^[0-9]{6}$/.test(pincode)) {
+        document.getElementById('pincodeError').classList.add('show');
+        document.getElementById('pincode').classList.add('is-invalid');
+        isValid = false;
+    } else {
+        document.getElementById('pincode').classList.add('is-valid');
+    }
+
+    // Place/Area
+    const place = document.getElementById('place').value.trim();
+    const placePattern = /^[A-Za-z0-9\s\/,.-]+$/;
+    if (!place || !placePattern.test(place)) {
+        document.getElementById('placeError').classList.add('show');
+        document.getElementById('place').classList.add('is-invalid');
+        isValid = false;
+    } else {
+        document.getElementById('place').classList.add('is-valid');
+    }
+
+    // City
+    const city = document.getElementById('city').value.trim();
+    if (!city || !/^[A-Za-z\s]+$/.test(city)) {
+        document.getElementById('cityError').classList.add('show');
+        document.getElementById('city').classList.add('is-invalid');
+        isValid = false;
+    } else {
+        document.getElementById('city').classList.add('is-valid');
+    }
+
+    // District
+    const district = document.getElementById('district').value.trim();
+    if (!district || !/^[A-Za-z\s]+$/.test(district)) {
+        document.getElementById('districtError').classList.add('show');
+        document.getElementById('district').classList.add('is-invalid');
+        isValid = false;
+    } else {
+        document.getElementById('district').classList.add('is-valid');
+    }
+
+    // State
+    const state = document.getElementById('state').value.trim();
+    if (!state || !/^[A-Za-z\s]+$/.test(state)) {
+        document.getElementById('stateError').classList.add('show');
+        document.getElementById('state').classList.add('is-invalid');
+        isValid = false;
+    } else {
+        document.getElementById('state').classList.add('is-valid');
+    }
+
+    // Age 18+
+    const dob = document.getElementById('dob').value;
+    const today = new Date();
+    const birthDate = new Date(dob);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    if (!dob || age < 18) {
+        document.getElementById('dobError').classList.add('show');
+        document.getElementById('dob').classList.add('is-invalid');
+        isValid = false;
+    } else {
+        document.getElementById('dob').classList.add('is-valid');
+    }
+
+    // Password
+    const password = document.getElementById('password').value;
+    if (password.length < 6) {
+        document.getElementById('passwordError').classList.add('show');
+        document.getElementById('password').classList.add('is-invalid');
+        isValid = false;
+    } else {
+        document.getElementById('password').classList.add('is-valid');
+    }
+
+    // Confirm Password
+    const confirmPassword = document.getElementById('confirmPassword').value;
+    if (password !== confirmPassword || confirmPassword === "") {
+        document.getElementById('confirmPasswordError').classList.add('show');
+        document.getElementById('confirmPassword').classList.add('is-invalid');
+        isValid = false;
+    } else {
+        document.getElementById('confirmPassword').classList.add('is-valid');
+    }
+
+    // Photo
+    const photo = document.getElementById('photo').value;
+    if (!/(\.jpg|\.jpeg|\.png)$/i.test(photo)) {
+        document.getElementById('photoError').classList.add('show');
+        document.getElementById('photo').classList.add('is-invalid');
+        isValid = false;
+    } else {
+        document.getElementById('photo').classList.add('is-valid');
+    }
+
+    if (!isValid) {
+        e.preventDefault();
+    }
+});
+</script>
+
 </body>
 </html>
+
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Registration Form</title>#}
+{#    <!-- Bootstrap 5.3 -->#}
+{#    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">#}
+{#    <style>#}
+{#        body {#}
+{#            background: linear-gradient(135deg, #19438c, #1b708c, #415a77);#}
+{#            min-height: 100vh;#}
+{#            display: flex;#}
+{#            align-items: center;#}
+{#            justify-content: center;#}
+{#            font-family: 'Segoe UI', system-ui, sans-serif;#}
+{#            color: #e0e7ff;#}
+{#        }#}
+{#        body {#}
+{#            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);#}
+{#            min-height: 100vh;#}
+{#            display: flex;#}
+{#            align-items: center;#}
+{#            justify-content: center;#}
+{#            font-family: 'Segoe UI', system-ui, sans-serif;#}
+{#            color: #e0e7ff;#}
+{#        }#}
+{##}
+{#        .card {#}
+{#            background: rgba(15, 32, 39, 0.92);#}
+{#            backdrop-filter: blur(10px);#}
+{#            border: 1px solid rgba(100, 150, 255, 0.18);#}
+{#            border-radius: 16px;#}
+{#            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);#}
+{#            width: 100%;#}
+{#            max-width: 480px;#}
+{#            padding: 2.25rem 1.75rem;#}
+{#            color: #e0e7ff;#}
+{#        }#}
+{##}
+{#        h3 {#}
+{#            color: #60a5fa;#}
+{#            font-weight: 600;#}
+{#            letter-spacing: 0.5px;#}
+{#            margin-bottom: 1.75rem;#}
+{#        }#}
+{##}
+{#        .form-label {#}
+{#            color: #94a3b8;#}
+{#            font-weight: 500;#}
+{#            margin-bottom: 0.45rem;#}
+{#        }#}
+{##}
+{#        .form-control {#}
+{#            background-color: rgba(30, 58, 138, 0.4);#}
+{#            border: 1px solid rgba(100, 150, 255, 0.35);#}
+{#            color: #e0f2fe;#}
+{#            border-radius: 8px;#}
+{#            padding: 0.65rem 1rem;#}
+{#            transition: all 0.2s ease;#}
+{#        }#}
+{##}
+{#        .form-control:focus {#}
+{#            background-color: rgba(30, 58, 138, 0.55);#}
+{#            border-color: #60a5fa;#}
+{#            box-shadow: 0 0 0 0.25rem rgba(96, 165, 250, 0.25);#}
+{#            color: #e0f2fe;#}
+{#        }#}
+{##}
+{#        .form-control::placeholder {#}
+{#            color: rgba(224, 231, 255, 0.45);#}
+{#        }#}
+{##}
+{#        .form-control.is-valid {#}
+{#            border-color: #4ade80;#}
+{#            background-color: rgba(34, 197, 94, 0.12);#}
+{#        }#}
+{##}
+{#        .form-control.is-invalid {#}
+{#            border-color: #f87171;#}
+{#            background-color: rgba(239, 68, 68, 0.12);#}
+{#        }#}
+{##}
+{#        .error-text {#}
+{#            color: #fca5a5;#}
+{#            font-size: 0.875rem;#}
+{#            margin-top: 0.35rem;#}
+{#            display: none;#}
+{#        }#}
+{##}
+{#        .error-text.show {#}
+{#            display: block;#}
+{#        }#}
+{##}
+{#        .btn-primary {#}
+{#            background: linear-gradient(90deg, #3b82f6, #60a5fa);#}
+{#            border: none;#}
+{#            border-radius: 10px;#}
+{#            padding: 0.75rem;#}
+{#            font-weight: 600;#}
+{#            letter-spacing: 0.4px;#}
+{#            transition: all 0.25s ease;#}
+{#            margin-top: 1.25rem;#}
+{#        }#}
+{##}
+{#        .btn-primary:hover {#}
+{#            background: linear-gradient(90deg, #2563eb, #3b82f6);#}
+{#            transform: translateY(-2px);#}
+{#            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.35);#}
+{#        }#}
+{##}
+{#        .btn-primary:active {#}
+{#            transform: translateY(0);#}
+{#        }#}
+{##}
+{#        input[type="file"] {#}
+{#            color: #e0f2fe;#}
+{#        }#}
+{##}
+{#        input[type="file"]::-webkit-file-upload-button {#}
+{#            background: rgba(59, 130, 246, 0.25);#}
+{#            color: #60a5fa;#}
+{#            border: 1px solid rgba(96, 165, 250, 0.4);#}
+{#            border-radius: 6px;#}
+{#            padding: 0.4rem 0.9rem;#}
+{#        }#}
+{#    </style>#}
+{#</head>#}
+{#<body>#}
+{##}
+{#<div class="card shadow">#}
+{#    <h3 class="text-center">Create Account</h3>#}
+{##}
+{#    <form method="post" action="/myapp/signup_post/" enctype="multipart/form-data" id="registrationForm">#}
+{#        {% csrf_token %}#}
+{##}
+{#        <!-- Full Name -->#}
+{#        <div class="mb-3">#}
+{#            <label class="form-label">Full Name</label>#}
+{#            <input type="text" name="fullname" class="form-control" id="fullname" placeholder="John Doe">#}
+{#            <div class="error-text" id="fullnameError">Name must contain only letters and spaces</div>#}
+{#        </div>#}
+{##}
+{#        <div class="form-group">#}
+{#            <label class="form-label">Gender <span>*</span></label>#}
+{#            <div class="radio-group">#}
+{#                <div class="radio-wrapper">#}
+{#                    <input type="radio" name="gender" value="male" id="male" required>#}
+{#                    <label for="male">Male</label>#}
+{#                </div>#}
+{#                <div class="radio-wrapper">#}
+{#                    <input type="radio" name="gender" value="female" id="female" required>#}
+{#                    <label for="female">Female</label>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{##}
+{##}
+{#        <!-- Email -->#}
+{#        <div class="mb-3">#}
+{#            <label class="form-label">Email</label>#}
+{#            <input type="text" name="email" class="form-control" id="email" placeholder="example@gmail.com">#}
+{#            <div class="error-text" id="emailError">Email must be a valid @gmail.com address</div>#}
+{#        </div>#}
+{##}
+{#        <!-- Phone -->#}
+{#        <div class="mb-3">#}
+{#            <label class="form-label">Phone Number</label>#}
+{#            <input type="text" name="phoneno" class="form-control" id="phone" placeholder="9876543210">#}
+{#            <div class="error-text" id="phoneError">Phone must be exactly 10 digits</div>#}
+{#        </div>#}
+{##}
+{#        <!-- Pincode -->#}
+{#        <div class="mb-3">#}
+{#            <label class="form-label">Pincode</label>#}
+{#            <input type="text" name="pincode" class="form-control" id="pincode" placeholder="682001">#}
+{#            <div class="error-text" id="pincodeError">Pincode must be exactly 6 digits</div>#}
+{#        </div>#}
+{##}
+{#        <!-- Place / Area / Locality -->#}
+{#        <div class="mb-3">#}
+{#            <label class="form-label">Place / Area / Locality</label>#}
+{#            <input type="text" name="place" class="form-control" id="place" placeholder="e.g. Kakkanad, MG Road, XYZ Colony">#}
+{#            <div class="error-text" id="placeError">Please enter a valid place/area (letters, numbers, spaces & common symbols allowed)</div>#}
+{#        </div>#}
+{##}
+{#        <!-- City / Town / Village -->#}
+{#        <div class="mb-3">#}
+{#            <label class="form-label">City / Town / Village</label>#}
+{#            <input type="text" name="city" class="form-control" id="city" placeholder="e.g. Kochi, Thiruvananthapuram">#}
+{#            <div class="error-text" id="cityError">Please enter city/town/village name (letters & spaces only)</div>#}
+{#        </div>#}
+{##}
+{#        <!-- District -->#}
+{#        <div class="mb-3">#}
+{#            <label class="form-label">District</label>#}
+{#            <input type="text" name="district" class="form-control" id="district" placeholder="e.g. Ernakulam, Thrissur">#}
+{#            <div class="error-text" id="districtError">Please enter district name (letters & spaces only)</div>#}
+{#        </div>#}
+{##}
+{#        <!-- State -->#}
+{#        <div class="mb-3">#}
+{#            <label class="form-label">State</label>#}
+{#            <input type="text" name="state" class="form-control" id="state" placeholder="e.g. Kerala, Tamil Nadu">#}
+{#            <div class="error-text" id="stateError">Please enter state name (letters & spaces only)</div>#}
+{#        </div>#}
+{##}
+{#        <!-- Date of Birth -->#}
+{#        <div class="mb-3">#}
+{#            <label class="form-label">Date of Birth</label>#}
+{#            <input type="date" name="dob" class="form-control" id="dob">#}
+{#            <div class="error-text" id="dobError">You must be at least 18 years old</div>#}
+{#        </div>#}
+{##}
+{#        <!-- Password -->#}
+{#        <div class="mb-3">#}
+{#            <label class="form-label">Password</label>#}
+{#            <input type="password" name="password" class="form-control" id="password" placeholder="••••••••">#}
+{#            <div class="error-text" id="passwordError">Password must be at least 6 characters</div>#}
+{#        </div>#}
+{##}
+{#        <!-- Confirm Password -->#}
+{#        <div class="mb-3">#}
+{#            <label class="form-label">Confirm Password</label>#}
+{#            <input type="password" name="confirmpassword" class="form-control" id="confirmPassword" placeholder="••••••••">#}
+{#            <div class="error-text" id="confirmPasswordError">Passwords do not match</div>#}
+{#        </div>#}
+{##}
+{#        <!-- Photo Upload -->#}
+{#        <div class="mb-4">#}
+{#            <label class="form-label">Upload Photo</label>#}
+{#            <input type="file" name="photo" class="form-control" id="photo" accept=".jpg,.jpeg,.png">#}
+{#            <div class="error-text" id="photoError">Only JPG, JPEG, PNG allowed</div>#}
+{#        </div>#}
+{##}
+{#        <button type="submit" class="btn btn-primary w-100">Register</button>#}
+{#    </form>#}
+{#</div>#}
+{##}
+{#<script>#}
+{#// ──────────────────────────────────────────────#}
+{#// Updated validation (previous code + new fields)#}
+{#// ──────────────────────────────────────────────#}
+{#document.getElementById('registrationForm').addEventListener('submit', function(e) {#}
+{#    let isValid = true;#}
+{#    document.querySelectorAll('.error-text').forEach(el => el.classList.remove('show'));#}
+{#    document.querySelectorAll('.form-control').forEach(el => {#}
+{#        el.classList.remove('is-invalid', 'is-valid');#}
+{#    });#}
+{##}
+{#    // Name#}
+{#    const fullname = document.getElementById('fullname').value.trim();#}
+{#    const namePattern = /^[A-Za-z\s]+$/;#}
+{#    if (!namePattern.test(fullname)) {#}
+{#        document.getElementById('fullnameError').classList.add('show');#}
+{#        document.getElementById('fullname').classList.add('is-invalid');#}
+{#        isValid = false;#}
+{#    } else {#}
+{#        document.getElementById('fullname').classList.add('is-valid');#}
+{#    }#}
+{##}
+{#    // Gmail only#}
+{#    const email = document.getElementById('email').value.trim();#}
+{#    const gmailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;#}
+{#    if (!gmailPattern.test(email)) {#}
+{#        document.getElementById('emailError').classList.add('show');#}
+{#        document.getElementById('email').classList.add('is-invalid');#}
+{#        isValid = false;#}
+{#    } else {#}
+{#        document.getElementById('email').classList.add('is-valid');#}
+{#    }#}
+{##}
+{#    // Phone#}
+{#    const phone = document.getElementById('phone').value.trim();#}
+{#    if (!/^[0-9]{10}$/.test(phone)) {#}
+{#        document.getElementById('phoneError').classList.add('show');#}
+{#        document.getElementById('phone').classList.add('is-invalid');#}
+{#        isValid = false;#}
+{#    } else {#}
+{#        document.getElementById('phone').classList.add('is-valid');#}
+{#    }#}
+{##}
+{#    // Pincode#}
+{#    const pincode = document.getElementById('pincode').value.trim();#}
+{#    if (!/^[0-9]{6}$/.test(pincode)) {#}
+{#        document.getElementById('pincodeError').classList.add('show');#}
+{#        document.getElementById('pincode').classList.add('is-invalid');#}
+{#        isValid = false;#}
+{#    } else {#}
+{#        document.getElementById('pincode').classList.add('is-valid');#}
+{#    }#}
+{##}
+{#    // New fields - Place/Area#}
+{#    const place = document.getElementById('place').value.trim();#}
+{#    const placePattern = /^[A-Za-z0-9\s\/,.-]+$/; // letters, numbers, space, comma, dot, slash, hyphen#}
+{#    if (!place || !placePattern.test(place)) {#}
+{#        document.getElementById('placeError').classList.add('show');#}
+{#        document.getElementById('place').classList.add('is-invalid');#}
+{#        isValid = false;#}
+{#    } else {#}
+{#        document.getElementById('place').classList.add('is-valid');#}
+{#    }#}
+{##}
+{#    // City#}
+{#    const city = document.getElementById('city').value.trim();#}
+{#    if (!city || !/^[A-Za-z\s]+$/.test(city)) {#}
+{#        document.getElementById('cityError').classList.add('show');#}
+{#        document.getElementById('city').classList.add('is-invalid');#}
+{#        isValid = false;#}
+{#    } else {#}
+{#        document.getElementById('city').classList.add('is-valid');#}
+{#    }#}
+{##}
+{#    // District#}
+{#    const district = document.getElementById('district').value.trim();#}
+{#    if (!district || !/^[A-Za-z\s]+$/.test(district)) {#}
+{#        document.getElementById('districtError').classList.add('show');#}
+{#        document.getElementById('district').classList.add('is-invalid');#}
+{#        isValid = false;#}
+{#    } else {#}
+{#        document.getElementById('district').classList.add('is-valid');#}
+{#    }#}
+{##}
+{#    // State#}
+{#    const state = document.getElementById('state').value.trim();#}
+{#    if (!state || !/^[A-Za-z\s]+$/.test(state)) {#}
+{#        document.getElementById('stateError').classList.add('show');#}
+{#        document.getElementById('state').classList.add('is-invalid');#}
+{#        isValid = false;#}
+{#    } else {#}
+{#        document.getElementById('state').classList.add('is-valid');#}
+{#    }#}
+{##}
+{#    // Age 18+#}
+{#    const dob = document.getElementById('dob').value;#}
+{#    const today = new Date();#}
+{#    const birthDate = new Date(dob);#}
+{#    let age = today.getFullYear() - birthDate.getFullYear();#}
+{#    const m = today.getMonth() - birthDate.getMonth();#}
+{#    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {#}
+{#        age--;#}
+{#    }#}
+{#    if (!dob || age < 18) {#}
+{#        document.getElementById('dobError').classList.add('show');#}
+{#        document.getElementById('dob').classList.add('is-invalid');#}
+{#        isValid = false;#}
+{#    } else {#}
+{#        document.getElementById('dob').classList.add('is-valid');#}
+{#    }#}
+{##}
+{#    // Password#}
+{#    const password = document.getElementById('password').value;#}
+{#    if (password.length < 6) {#}
+{#        document.getElementById('passwordError').classList.add('show');#}
+{#        document.getElementById('password').classList.add('is-invalid');#}
+{#        isValid = false;#}
+{#    } else {#}
+{#        document.getElementById('password').classList.add('is-valid');#}
+{#    }#}
+{##}
+{#    // Confirm Password#}
+{#    const confirmPassword = document.getElementById('confirmPassword').value;#}
+{#    if (password !== confirmPassword || confirmPassword === "") {#}
+{#        document.getElementById('confirmPasswordError').classList.add('show');#}
+{#        document.getElementById('confirmPassword').classList.add('is-invalid');#}
+{#        isValid = false;#}
+{#    } else {#}
+{#        document.getElementById('confirmPassword').classList.add('is-valid');#}
+{#    }#}
+{##}
+{#    // Photo#}
+{#    const photo = document.getElementById('photo').value;#}
+{#    if (!/(\.jpg|\.jpeg|\.png)$/i.test(photo)) {#}
+{#        document.getElementById('photoError').classList.add('show');#}
+{#        document.getElementById('photo').classList.add('is-invalid');#}
+{#        isValid = false;#}
+{#    } else {#}
+{#        document.getElementById('photo').classList.add('is-valid');#}
+{#    }#}
+{##}
+{#    if (!isValid) {#}
+{#        e.preventDefault();#}
+{#    }#}
+{#});#}
+{#</script>#}
+{##}
+{#</body>#}
+{#</html>#}
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Registration Form</title>#}
+{#    <!-- Bootstrap 5.3 -->#}
+{#    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">#}
+{#    <style>#}
+{#        body {#}
+{#            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);#}
+{#            min-height: 100vh;#}
+{#            display: flex;#}
+{#            align-items: center;#}
+{#            justify-content: center;#}
+{#            font-family: 'Segoe UI', system-ui, sans-serif;#}
+{#            color: #e0e7ff;#}
+{#        }#}
+{##}
+{#        .card {#}
+{#            background: rgba(15, 32, 39, 0.92);#}
+{#            backdrop-filter: blur(10px);#}
+{#            border: 1px solid rgba(100, 150, 255, 0.18);#}
+{#            border-radius: 16px;#}
+{#            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);#}
+{#            width: 100%;#}
+{#            max-width: 480px;#}
+{#            padding: 2.25rem 1.75rem;#}
+{#            color: #e0e7ff;#}
+{#        }#}
+{##}
+{#        h3 {#}
+{#            color: #60a5fa;#}
+{#            font-weight: 600;#}
+{#            letter-spacing: 0.5px;#}
+{#            margin-bottom: 1.75rem;#}
+{#        }#}
+{##}
+{#        .form-label {#}
+{#            color: #94a3b8;#}
+{#            font-weight: 500;#}
+{#            margin-bottom: 0.45rem;#}
+{#        }#}
+{##}
+{#        .form-control {#}
+{#            background-color: rgba(30, 58, 138, 0.4);#}
+{#            border: 1px solid rgba(100, 150, 255, 0.35);#}
+{#            color: #e0f2fe;#}
+{#            border-radius: 8px;#}
+{#            padding: 0.65rem 1rem;#}
+{#            transition: all 0.2s ease;#}
+{#        }#}
+{##}
+{#        .form-control:focus {#}
+{#            background-color: rgba(30, 58, 138, 0.55);#}
+{#            border-color: #60a5fa;#}
+{#            box-shadow: 0 0 0 0.25rem rgba(96, 165, 250, 0.25);#}
+{#            color: #e0f2fe;#}
+{#        }#}
+{##}
+{#        .form-control::placeholder {#}
+{#            color: rgba(224, 231, 255, 0.45);#}
+{#        }#}
+{##}
+{#        .form-control.is-valid {#}
+{#            border-color: #4ade80;#}
+{#            background-color: rgba(34, 197, 94, 0.12);#}
+{#        }#}
+{##}
+{#        .form-control.is-invalid {#}
+{#            border-color: #f87171;#}
+{#            background-color: rgba(239, 68, 68, 0.12);#}
+{#        }#}
+{##}
+{#        .error-text {#}
+{#            color: #fca5a5;#}
+{#            font-size: 0.875rem;#}
+{#            margin-top: 0.35rem;#}
+{#            display: none;#}
+{#        }#}
+{##}
+{#        .error-text.show {#}
+{#            display: block;#}
+{#        }#}
+{##}
+{#        .btn-primary {#}
+{#            background: linear-gradient(90deg, #3b82f6, #60a5fa);#}
+{#            border: none;#}
+{#            border-radius: 10px;#}
+{#            padding: 0.75rem;#}
+{#            font-weight: 600;#}
+{#            letter-spacing: 0.4px;#}
+{#            transition: all 0.25s ease;#}
+{#            margin-top: 1.25rem;#}
+{#        }#}
+{##}
+{#        .btn-primary:hover {#}
+{#            background: linear-gradient(90deg, #2563eb, #3b82f6);#}
+{#            transform: translateY(-2px);#}
+{#            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.35);#}
+{#        }#}
+{##}
+{#        .btn-primary:active {#}
+{#            transform: translateY(0);#}
+{#        }#}
+{##}
+{#        input[type="file"] {#}
+{#            color: #e0f2fe;#}
+{#        }#}
+{##}
+{#        input[type="file"]::-webkit-file-upload-button {#}
+{#            background: rgba(59, 130, 246, 0.25);#}
+{#            color: #60a5fa;#}
+{#            border: 1px solid rgba(96, 165, 250, 0.4);#}
+{#            border-radius: 6px;#}
+{#            padding: 0.4rem 0.9rem;#}
+{#        }#}
+{#    </style>#}
+{#</head>#}
+{#<body>#}
+{##}
+{#<div class="card shadow">#}
+{#    <h3 class="text-center">Create Account</h3>#}
+{##}
+{#    <form method="post" action="/myapp/signup_post/" enctype="multipart/form-data" id="registrationForm">#}
+{#        {% csrf_token %}#}
+{#        <!-- Full Name -->#}
+{#        <div class="mb-3">#}
+{#            <label class="form-label">Full Name</label>#}
+{#            <input type="text" name="fullname" class="form-control" id="fullname" placeholder="John Doe">#}
+{#            <div class="error-text" id="fullnameError">Name must contain only letters and spaces</div>#}
+{#        </div>#}
+{##}
+{#        <!-- Email -->#}
+{#        <div class="mb-3">#}
+{#            <label class="form-label">Email</label>#}
+{#            <input type="text" class="form-control" name="email" id="email" placeholder="example@gmail.com">#}
+{#            <div class="error-text" id="emailError">Email must be a valid @gmail.com address</div>#}
+{#        </div>#}
+{##}
+{#        <!-- Phone -->#}
+{#        <div class="mb-3">#}
+{#            <label class="form-label">Phone Number</label>#}
+{#            <input type="text" class="form-control" name="phoneno" id="phone" placeholder="9876543210">#}
+{#            <div class="error-text" id="phoneError">Phone must be exactly 10 digits</div>#}
+{#        </div>#}
+{##}
+{#        <!-- Pincode -->#}
+{#        <div class="mb-3">#}
+{#            <label class="form-label">Pincode</label>#}
+{#            <input type="text" class="form-control" name="pincode" id="pincode" placeholder="682001">#}
+{#            <div class="error-text" id="pincodeError">Pincode must be exactly 6 digits</div>#}
+{#        </div>#}
+{##}
+{#        <!-- Date of Birth -->#}
+{#        <div class="mb-3">#}
+{#            <label class="form-label">Date of Birth</label>#}
+{#            <input type="date" name="dob" class="form-control" id="dob">#}
+{#            <div class="error-text" id="dobError">You must be at least 18 years old</div>#}
+{#        </div>#}
+{##}
+{#        <!-- Password -->#}
+{#        <div class="mb-3">#}
+{#            <label class="form-label">Password</label>#}
+{#            <input type="password" name="password" class="form-control" id="password" placeholder="••••••••">#}
+{#            <div class="error-text" id="passwordError">Password must be at least 6 characters</div>#}
+{#        </div>#}
+{##}
+{#        <!-- Confirm Password -->#}
+{#        <div class="mb-3">#}
+{#            <label class="form-label">Confirm Password</label>#}
+{#            <input type="password" name="confirmpassword" class="form-control" id="confirmPassword" placeholder="••••••••">#}
+{#            <div class="error-text" id="confirmPasswordError">Passwords do not match</div>#}
+{#        </div>#}
+{##}
+{#        <!-- Photo Upload -->#}
+{#        <div class="mb-4">#}
+{#            <label class="form-label">Upload Photo</label>#}
+{#            <input type="file" name="photo" class="form-control" id="photo" accept=".jpg,.jpeg,.png">#}
+{#            <div class="error-text" id="photoError">Only JPG, JPEG, PNG allowed</div>#}
+{#        </div>#}
+{##}
+{#        <button type="submit" class="btn btn-primary w-100">Register</button>#}
+{#    </form>#}
+{#</div>#}
+{##}
+{#<!-- Your original JavaScript validation remains completely unchanged -->#}
+{#<script>#}
+{#// ──────────────────────────────────────────────#}
+{#// Your existing validation code (unchanged)#}
+{#// ──────────────────────────────────────────────#}
+{#document.getElementById('registrationForm').addEventListener('submit', function(e) {#}
+{#    let isValid = true;#}
+{#    document.querySelectorAll('.error-text').forEach(el => el.classList.remove('show'));#}
+{#    document.querySelectorAll('.form-control').forEach(el => {#}
+{#        el.classList.remove('is-invalid', 'is-valid');#}
+{#    });#}
+{#    // Name#}
+{#    const fullname = document.getElementById('fullname').value.trim();#}
+{#    const namePattern = /^[A-Za-z\s]+$/;#}
+{#    if (!namePattern.test(fullname)) {#}
+{#        document.getElementById('fullnameError').classList.add('show');#}
+{#        document.getElementById('fullname').classList.add('is-invalid');#}
+{#        isValid = false;#}
+{#    } else {#}
+{#        document.getElementById('fullname').classList.add('is-valid');#}
+{#    }#}
+{#    // Gmail only#}
+{#    const email = document.getElementById('email').value.trim();#}
+{#    const gmailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;#}
+{#    if (!gmailPattern.test(email)) {#}
+{#        document.getElementById('emailError').classList.add('show');#}
+{#        document.getElementById('email').classList.add('is-invalid');#}
+{#        isValid = false;#}
+{#    } else {#}
+{#        document.getElementById('email').classList.add('is-valid');#}
+{#    }#}
+{#    // Phone#}
+{#    const phone = document.getElementById('phone').value.trim();#}
+{#    if (!/^[0-9]{10}$/.test(phone)) {#}
+{#        document.getElementById('phoneError').classList.add('show');#}
+{#        document.getElementById('phone').classList.add('is-invalid');#}
+{#        isValid = false;#}
+{#    } else {#}
+{#        document.getElementById('phone').classList.add('is-valid');#}
+{#    }#}
+{#    // Pincode#}
+{#    const pincode = document.getElementById('pincode').value.trim();#}
+{#    if (!/^[0-9]{6}$/.test(pincode)) {#}
+{#        document.getElementById('pincodeError').classList.add('show');#}
+{#        document.getElementById('pincode').classList.add('is-invalid');#}
+{#        isValid = false;#}
+{#    } else {#}
+{#        document.getElementById('pincode').classList.add('is-valid');#}
+{#    }#}
+{#    // Age 18+#}
+{#    const dob = document.getElementById('dob').value;#}
+{#    const today = new Date();#}
+{#    const birthDate = new Date(dob);#}
+{#    let age = today.getFullYear() - birthDate.getFullYear();#}
+{#    const m = today.getMonth() - birthDate.getMonth();#}
+{#    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {#}
+{#        age--;#}
+{#    }#}
+{#    if (!dob || age < 18) {#}
+{#        document.getElementById('dobError').classList.add('show');#}
+{#        document.getElementById('dob').classList.add('is-invalid');#}
+{#        isValid = false;#}
+{#    } else {#}
+{#        document.getElementById('dob').classList.add('is-valid');#}
+{#    }#}
+{#    // Password#}
+{#    const password = document.getElementById('password').value;#}
+{#    if (password.length < 6) {#}
+{#        document.getElementById('passwordError').classList.add('show');#}
+{#        document.getElementById('password').classList.add('is-invalid');#}
+{#        isValid = false;#}
+{#    } else {#}
+{#        document.getElementById('password').classList.add('is-valid');#}
+{#    }#}
+{#    // Confirm Password#}
+{#    const confirmPassword = document.getElementById('confirmPassword').value;#}
+{#    if (password !== confirmPassword || confirmPassword === "") {#}
+{#        document.getElementById('confirmPasswordError').classList.add('show');#}
+{#        document.getElementById('confirmPassword').classList.add('is-invalid');#}
+{#        isValid = false;#}
+{#    } else {#}
+{#        document.getElementById('confirmPassword').classList.add('is-valid');#}
+{#    }#}
+{#    // Photo#}
+{#    const photo = document.getElementById('photo').value;#}
+{#    if (!/(\.jpg|\.jpeg|\.png)$/i.test(photo)) {#}
+{#        document.getElementById('photoError').classList.add('show');#}
+{#        document.getElementById('photo').classList.add('is-invalid');#}
+{#        isValid = false;#}
+{#    } else {#}
+{#        document.getElementById('photo').classList.add('is-valid');#}
+{#    }#}
+{#    if (!isValid) {#}
+{#        e.preventDefault();#}
+{#    }#}
+
+{#</script>#}
+{##}
+{#</body>#}
+{#</html>#}
+
+{#<!DOCTYPE html>#}
+{#<html lang="en" data-bs-theme="dark">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
+{#    <title>Diabetic Distress Detection • Sign Up</title>#}
+{##}
+{#    <!-- Bootstrap 5.3 -->#}
+{#    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">#}
+{##}
+{#    <!-- Google Fonts -->#}
+{#    <link rel="preconnect" href="https://fonts.googleapis.com">#}
+{#    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>#}
+{#    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">#}
+{##}
+{#    <!-- Font Awesome -->#}
+{#    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">#}
+{##}
+{#    <style>#}
+{#        * {#}
+{#            margin: 0;#}
+{#            padding: 0;#}
+{#            box-sizing: border-box;#}
+{#        }#}
+{##}
+{#        :root {#}
+{#            --primary-color: #3498db;#}
+{#            --secondary-color: #2980b9;#}
+{#            --success-color: #27ae60;#}
+{#            --danger-color: #e74c3c;#}
+{#            --warning-color: #f39c12;#}
+{#            --light-bg: #f8f9fa;#}
+{#            --card-bg: #ffffff;#}
+{#            --text-dark: #2c3e50;#}
+{#            --text-light: #7f8c8d;#}
+{#            --border-color: #ecf0f1;#}
+{#        }#}
+{##}
+{#        [data-bs-theme="dark"] {#}
+{#            --primary-color: #3498db;#}
+{#            --secondary-color: #2980b9;#}
+{#            --success-color: #27ae60;#}
+{#            --danger-color: #e74c3c;#}
+{#            --warning-color: #f39c12;#}
+{#            --light-bg: #1a1a2e;#}
+{#            --card-bg: #16213e;#}
+{#            --text-dark: #ecf0f1;#}
+{#            --text-light: #bdc3c7;#}
+{#            --border-color: #34495e;#}
+{#        }#}
+{##}
+{#        body {#}
+{#            font-family: 'Poppins', sans-serif;#}
+{#            background: linear-gradient(135deg, #3498db 0%, #2980b9 50%, #1565c0 100%);#}
+{#            min-height: 100vh;#}
+{#            padding: 2rem 0;#}
+{#            color: var(--text-dark);#}
+{#        }#}
+{##}
+{#        [data-bs-theme="dark"] body {#}
+{#            background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 50%, #0d0e16 100%);#}
+{#        }#}
+{##}
+{#        /* Animated Background */#}
+{#        .bg-animation {#}
+{#            position: fixed;#}
+{#            top: 0;#}
+{#            left: 0;#}
+{#            width: 100%;#}
+{#            height: 100%;#}
+{#            z-index: -1;#}
+{#            overflow: hidden;#}
+{#            pointer-events: none;#}
+{#        }#}
+{##}
+{#        .medical-bg {#}
+{#            position: absolute;#}
+{#            opacity: 0.05;#}
+{#            animation: float 15s infinite ease-in-out;#}
+{#        }#}
+{##}
+{#        .heartbeat-1 {#}
+{#            top: 10%;#}
+{#            left: 5%;#}
+{#            font-size: 6rem;#}
+{#            animation-delay: 0s;#}
+{#        }#}
+{##}
+{#        .heartbeat-2 {#}
+{#            bottom: 10%;#}
+{#            right: 8%;#}
+{#            font-size: 5rem;#}
+{#            animation-delay: 1s;#}
+{#        }#}
+{##}
+{#        @keyframes float {#}
+{#            0%, 100% { transform: translateY(0px) rotate(0deg); }#}
+{#            50% { transform: translateY(-20px) rotate(5deg); }#}
+{#        }#}
+{##}
+{#        .signup-header {#}
+{#            text-align: center;#}
+{#            margin-bottom: 3rem;#}
+{#            color: white;#}
+{#        }#}
+{##}
+{#        .signup-header h1 {#}
+{#            font-size: 2.5rem;#}
+{#            font-weight: 700;#}
+{#            margin-bottom: 0.5rem;#}
+{#            text-shadow: 0 2px 4px rgba(0,0,0,0.2);#}
+{#        }#}
+{##}
+{#        .signup-header p {#}
+{#            font-size: 1.1rem;#}
+{#            opacity: 0.95;#}
+{#        }#}
+{##}
+{#        .signup-icon {#}
+{#            display: inline-block;#}
+{#            font-size: 3rem;#}
+{#            margin-bottom: 1rem;#}
+{#        }#}
+{##}
+{#        .signup-container {#}
+{#            background: var(--card-bg);#}
+{#            border-radius: 20px;#}
+{#            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);#}
+{#            padding: 0;#}
+{#            max-width: 900px;#}
+{#            margin: 0 auto;#}
+{#            overflow: hidden;#}
+{#        }#}
+{##}
+{#        .form-wrapper {#}
+{#            padding: 3rem;#}
+{#        }#}
+{##}
+{#        .form-section {#}
+{#            margin-bottom: 2.5rem;#}
+{#        }#}
+{##}
+{#        .section-title {#}
+{#            font-size: 1.1rem;#}
+{#            font-weight: 600;#}
+{#            color: var(--primary-color);#}
+{#            margin-bottom: 1.5rem;#}
+{#            padding-bottom: 0.75rem;#}
+{#            border-bottom: 2px solid var(--primary-color);#}
+{#            display: flex;#}
+{#            align-items: center;#}
+{#            gap: 0.75rem;#}
+{#        }#}
+{##}
+{#        .section-title i {#}
+{#            font-size: 1.3rem;#}
+{#        }#}
+{##}
+{#        .form-group {#}
+{#            margin-bottom: 1.5rem;#}
+{#        }#}
+{##}
+{#        .form-label {#}
+{#            display: block;#}
+{#            margin-bottom: 0.5rem;#}
+{#            font-weight: 500;#}
+{#            color: var(--text-dark);#}
+{#            font-size: 0.95rem;#}
+{#        }#}
+{##}
+{#        .form-label span {#}
+{#            color: var(--danger-color);#}
+{#            margin-left: 0.25rem;#}
+{#        }#}
+{##}
+{#        .form-control {#}
+{#            border: 1.5px solid var(--border-color);#}
+{#            border-radius: 8px;#}
+{#            padding: 0.75rem 1rem;#}
+{#            font-family: 'Poppins', sans-serif;#}
+{#            font-size: 0.95rem;#}
+{#            transition: all 0.3s ease;#}
+{#            background: var(--light-bg);#}
+{#            color: var(--text-dark);#}
+{#        }#}
+{##}
+{#        [data-bs-theme="dark"] .form-control {#}
+{#            background: rgba(255,255,255,0.05);#}
+{#            color: var(--text-dark);#}
+{#            border-color: rgba(255,255,255,0.1);#}
+{#        }#}
+{##}
+{#        .form-control:focus {#}
+{#            border-color: var(--primary-color);#}
+{#            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);#}
+{#            background: var(--card-bg);#}
+{#        }#}
+{##}
+{#        .form-row {#}
+{#            display: grid;#}
+{#            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));#}
+{#            gap: 1.5rem;#}
+{#        }#}
+{##}
+{#        .form-group-inline {#}
+{#            margin-bottom: 1.5rem;#}
+{#        }#}
+{##}
+{#        .radio-group {#}
+{#            display: flex;#}
+{#            gap: 2rem;#}
+{#        }#}
+{##}
+{#        .radio-wrapper {#}
+{#            display: flex;#}
+{#            align-items: center;#}
+{#            gap: 0.5rem;#}
+{#            cursor: pointer;#}
+{#        }#}
+{##}
+{#        .radio-wrapper input[type="radio"] {#}
+{#            width: 18px;#}
+{#            height: 18px;#}
+{#            cursor: pointer;#}
+{#            accent-color: var(--primary-color);#}
+{#        }#}
+{##}
+{#        .radio-wrapper label {#}
+{#            cursor: pointer;#}
+{#            margin: 0;#}
+{#            font-size: 0.95rem;#}
+{#        }#}
+{##}
+{#        .password-container {#}
+{#            position: relative;#}
+{#        }#}
+{##}
+{#        .password-toggle {#}
+{#            position: absolute;#}
+{#            right: 1rem;#}
+{#            top: 50%;#}
+{#            transform: translateY(-50%);#}
+{#            background: none;#}
+{#            border: none;#}
+{#            color: var(--text-light);#}
+{#            cursor: pointer;#}
+{#            font-size: 1.1rem;#}
+{#            transition: color 0.3s ease;#}
+{#            z-index: 10;#}
+{#        }#}
+{##}
+{#        .password-toggle:hover {#}
+{#            color: var(--primary-color);#}
+{#        }#}
+{##}
+{#        .photo-upload {#}
+{#            position: relative;#}
+{#        }#}
+{##}
+{#        .photo-upload input[type="file"] {#}
+{#            display: none;#}
+{#        }#}
+{##}
+{#        .photo-upload-btn {#}
+{#            display: flex;#}
+{#            align-items: center;#}
+{#            justify-content: center;#}
+{#            gap: 0.75rem;#}
+{#            width: 100%;#}
+{#            padding: 1.5rem;#}
+{#            border: 2px dashed var(--primary-color);#}
+{#            border-radius: 8px;#}
+{#            background: rgba(52, 152, 219, 0.05);#}
+{#            cursor: pointer;#}
+{#            transition: all 0.3s ease;#}
+{#            color: var(--primary-color);#}
+{#            font-weight: 500;#}
+{#        }#}
+{##}
+{#        .photo-upload-btn:hover {#}
+{#            background: rgba(52, 152, 219, 0.1);#}
+{#            border-color: var(--secondary-color);#}
+{#        }#}
+{##}
+{#        .photo-preview {#}
+{#            margin-top: 1rem;#}
+{#            text-align: center;#}
+{#        }#}
+{##}
+{#        .photo-preview img {#}
+{#            max-width: 150px;#}
+{#            height: 150px;#}
+{#            object-fit: cover;#}
+{#            border-radius: 8px;#}
+{#            box-shadow: 0 4px 12px rgba(0,0,0,0.1);#}
+{#        }#}
+{##}
+{#        .error-text {#}
+{#            color: var(--danger-color);#}
+{#            font-size: 0.85rem;#}
+{#            margin-top: 0.5rem;#}
+{#            display: none;#}
+{#        }#}
+{##}
+{#        .error-text.show {#}
+{#            display: block;#}
+{#        }#}
+{##}
+{#        .form-control.is-invalid {#}
+{#            border-color: var(--danger-color);#}
+{#            background: rgba(231, 76, 60, 0.05);#}
+{#        }#}
+{##}
+{#        .form-control.is-valid {#}
+{#            border-color: var(--success-color);#}
+{#        }#}
+{##}
+{#        .button-group {#}
+{#            display: flex;#}
+{#            gap: 1rem;#}
+{#            justify-content: center;#}
+{#            margin-top: 2rem;#}
+{#        }#}
+{##}
+{#        .btn-register {#}
+{#            background: linear-gradient(135deg, #3498db, #2980b9);#}
+{#            color: white;#}
+{#            border: none;#}
+{#            padding: 0.9rem 2.5rem;#}
+{#            border-radius: 8px;#}
+{#            font-weight: 600;#}
+{#            font-size: 0.95rem;#}
+{#            letter-spacing: 0.5px;#}
+{#            cursor: pointer;#}
+{#            transition: all 0.3s ease;#}
+{#            position: relative;#}
+{#            overflow: hidden;#}
+{#            min-width: 150px;#}
+{#        }#}
+{##}
+{#        .btn-register::before {#}
+{#            content: '';#}
+{#            position: absolute;#}
+{#            top: 0;#}
+{#            left: -100%;#}
+{#            width: 100%;#}
+{#            height: 100%;#}
+{#            background: rgba(255,255,255,0.2);#}
+{#            transition: left 0.3s ease;#}
+{#        }#}
+{##}
+{#        .btn-register:hover::before {#}
+{#            left: 100%;#}
+{#        }#}
+{##}
+{#        .btn-register:hover {#}
+{#            transform: translateY(-2px);#}
+{#            box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);#}
+{#        }#}
+{##}
+{#        .btn-register:active {#}
+{#            transform: translateY(0);#}
+{#        }#}
+{##}
+{#        .btn-reset {#}
+{#            background: var(--light-bg);#}
+{#            color: var(--text-dark);#}
+{#            border: 1.5px solid var(--border-color);#}
+{#            padding: 0.9rem 2.5rem;#}
+{#            border-radius: 8px;#}
+{#            font-weight: 600;#}
+{#            font-size: 0.95rem;#}
+{#            cursor: pointer;#}
+{#            transition: all 0.3s ease;#}
+{#            min-width: 150px;#}
+{#        }#}
+{##}
+{#        .btn-reset:hover {#}
+{#            border-color: var(--text-dark);#}
+{#            background: rgba(0,0,0,0.05);#}
+{#        }#}
+{##}
+{#        .login-link {#}
+{#            text-align: center;#}
+{#            margin-top: 2rem;#}
+{#            padding-top: 1.5rem;#}
+{#            border-top: 1px solid var(--border-color);#}
+{#        }#}
+{##}
+{#        .login-link p {#}
+{#            color: var(--text-light);#}
+{#            font-size: 0.9rem;#}
+{#            margin: 0;#}
+{#        }#}
+{##}
+{#        .login-link a {#}
+{#            color: var(--primary-color);#}
+{#            text-decoration: none;#}
+{#            font-weight: 600;#}
+{#            transition: all 0.3s ease;#}
+{#        }#}
+{##}
+{#        .login-link a:hover {#}
+{#            color: var(--secondary-color);#}
+{#            text-decoration: underline;#}
+{#        }#}
+{##}
+{#        /* Messages */#}
+{#        .alert {#}
+{#            border: none;#}
+{#            border-radius: 8px;#}
+{#            padding: 1rem;#}
+{#            margin-bottom: 1.5rem;#}
+{#            display: flex;#}
+{#            align-items: center;#}
+{#            gap: 0.75rem;#}
+{#            animation: slideInDown 0.4s ease;#}
+{#        }#}
+{##}
+{#        .alert-success {#}
+{#            background: #d4edda;#}
+{#            color: #155724;#}
+{#            border-left: 4px solid #27ae60;#}
+{#        }#}
+{##}
+{#        .alert-error {#}
+{#            background: #f8d7da;#}
+{#            color: #721c24;#}
+{#            border-left: 4px solid #e74c3c;#}
+{#        }#}
+{##}
+{#        .alert-warning {#}
+{#            background: #fff3cd;#}
+{#            color: #856404;#}
+{#            border-left: 4px solid #f39c12;#}
+{#        }#}
+{##}
+{#        @keyframes slideInDown {#}
+{#            from {#}
+{#                opacity: 0;#}
+{#                transform: translateY(-20px);#}
+{#            }#}
+{#            to {#}
+{#                opacity: 1;#}
+{#                transform: translateY(0);#}
+{#            }#}
+{#        }#}
+{##}
+{#        /* Theme Toggle */#}
+{#        .theme-toggle {#}
+{#            position: fixed;#}
+{#            top: 2rem;#}
+{#            right: 2rem;#}
+{#            width: 50px;#}
+{#            height: 50px;#}
+{#            border-radius: 50%;#}
+{#            background: rgba(255,255,255,0.2);#}
+{#            border: 2px solid rgba(255,255,255,0.4);#}
+{#            color: white;#}
+{#            cursor: pointer;#}
+{#            display: flex;#}
+{#            align-items: center;#}
+{#            justify-content: center;#}
+{#            font-size: 1.3rem;#}
+{#            transition: all 0.3s ease;#}
+{#            z-index: 100;#}
+{#            backdrop-filter: blur(10px);#}
+{#        }#}
+{##}
+{#        .theme-toggle:hover {#}
+{#            background: rgba(255,255,255,0.3);#}
+{#            transform: scale(1.1) rotate(20deg);#}
+{#        }#}
+{##}
+{#        /* Responsive */#}
+{#        @media (max-width: 768px) {#}
+{#            .signup-header h1 {#}
+{#                font-size: 1.8rem;#}
+{#            }#}
+{##}
+{#            .form-wrapper {#}
+{#                padding: 1.5rem;#}
+{#            }#}
+{##}
+{#            .form-row {#}
+{#                grid-template-columns: 1fr;#}
+{#            }#}
+{##}
+{#            .radio-group {#}
+{#                flex-direction: column;#}
+{#                gap: 1rem;#}
+{#            }#}
+{##}
+{#            .button-group {#}
+{#                flex-direction: column;#}
+{#            }#}
+{##}
+{#            .btn-register,#}
+{#            .btn-reset {#}
+{#                width: 100%;#}
+{#                min-width: auto;#}
+{#            }#}
+{##}
+{#            .theme-toggle {#}
+{#                top: 1rem;#}
+{#                right: 1rem;#}
+{#                width: 45px;#}
+{#                height: 45px;#}
+{#            }#}
+{#        }#}
+{#    </style>#}
+{#</head>#}
+{#<body>#}
+{#    <!-- Animated Background -->#}
+{#    <div class="bg-animation">#}
+{#        <div class="medical-bg heartbeat-1">❤️</div>#}
+{#        <div class="medical-bg heartbeat-2">💉</div>#}
+{#    </div>#}
+{##}
+{#    <!-- Theme Toggle -->#}
+{#    <button class="theme-toggle" id="themeBtn" title="Toggle dark/light mode">#}
+{#        <i class="fas fa-moon"></i>#}
+{#    </button>#}
+{##}
+{#    <!-- Header -->#}
+{#    <div class="signup-header">#}
+{#        <div class="signup-icon">🏥</div>#}
+{#        <h1>Create Your Account</h1>#}
+{#        <p>Join the Diabetic Distress Detection community today</p>#}
+{#    </div>#}
+{##}
+{#    <!-- Registration Form -->#}
+{#    <div class="signup-container">#}
+{#        <div class="form-wrapper">#}
+{#            <!-- Messages -->#}
+{#            {% if messages %}#}
+{#            <div class="messages-container">#}
+{#                {% for message in messages %}#}
+{#                    <div class="alert alert-{{ message.tags }}" role="alert">#}
+{#                        <i class="fas {% if message.tags == 'success' %}fa-check-circle{% elif message.tags == 'error' %}fa-exclamation-circle{% else %}fa-info-circle{% endif %}"></i>#}
+{#                        <span>{{ message }}</span>#}
+{#                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>#}
+{#                    </div>#}
+{#                {% endfor %}#}
+{#            </div>#}
+{#            {% endif %}#}
+{##}
+{#            <form method="post" action="/myapp/signup_post/" enctype="multipart/form-data" id="registrationForm">#}
+{#                {% csrf_token %}#}
+{##}
+{#                <!-- Personal Information -->#}
+{#                <div class="form-section">#}
+{#                    <div class="section-title">#}
+{#                        <i class="fas fa-user"></i>#}
+{#                        Personal Information#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-row">#}
+{#                        <div class="form-group">#}
+{#                            <label class="form-label">Full Name <span>*</span></label>#}
+{#                            <input type="text" name="fullname" class="form-control" id="fullname" placeholder="Enter your full name" required>#}
+{#                            <div class="error-text" id="fullnameError">Name should only contain letters and spaces</div>#}
+{#                        </div>#}
+{##}
+{#                        <div class="form-group">#}
+{#                            <label class="form-label">Gender <span>*</span></label>#}
+{#                            <div class="radio-group">#}
+{#                                <div class="radio-wrapper">#}
+{#                                    <input type="radio" name="gender" value="male" id="male" required>#}
+{#                                    <label for="male">Male</label>#}
+{#                                </div>#}
+{#                                <div class="radio-wrapper">#}
+{#                                    <input type="radio" name="gender" value="female" id="female" required>#}
+{#                                    <label for="female">Female</label>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-row">#}
+{#                        <div class="form-group">#}
+{#                            <label class="form-label">Date of Birth <span>*</span></label>#}
+{#                            <input type="date" class="form-control" name="dob" id="dob" required>#}
+{#                            <div class="error-text" id="dobError">You must be at least 18 years old</div>#}
+{#                        </div>#}
+{##}
+{#                        <div class="form-group">#}
+{#                            <label class="form-label">Email Address <span>*</span></label>#}
+{#                            <input type="email" class="form-control" id="email" name="email" placeholder="example@gmail.com" required>#}
+{#                            <div class="error-text" id="emailError">Email must be a valid @gmail.com address</div>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group">#}
+{#                        <label class="form-label">Phone Number <span>*</span></label>#}
+{#                        <input type="tel" class="form-control" id="phone" name="phoneno" placeholder="Enter 10-digit phone number" required>#}
+{#                        <div class="error-text" id="phoneError">Phone number must be exactly 10 digits</div>#}
+{#                    </div>#}
+{#                </div>#}
+{##}
+{#                <!-- Address Information -->#}
+{#                <div class="form-section">#}
+{#                    <div class="section-title">#}
+{#                        <i class="fas fa-map-marker-alt"></i>#}
+{#                        Address Information#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-row">#}
+{#                        <div class="form-group">#}
+{#                            <label class="form-label">Place <span>*</span></label>#}
+{#                            <input type="text" class="form-control" name="place" placeholder="Enter your place" required>#}
+{#                        </div>#}
+{##}
+{#                        <div class="form-group">#}
+{#                            <label class="form-label">City <span>*</span></label>#}
+{#                            <input type="text" class="form-control" name="city" placeholder="Enter your city" required>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-row">#}
+{#                        <div class="form-group">#}
+{#                            <label class="form-label">District <span>*</span></label>#}
+{#                            <input type="text" class="form-control" name="district" placeholder="Enter your district" required>#}
+{#                        </div>#}
+{##}
+{#                        <div class="form-group">#}
+{#                            <label class="form-label">State <span>*</span></label>#}
+{#                            <input type="text" class="form-control" name="state" placeholder="Enter your state" required>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group">#}
+{#                        <label class="form-label">Pincode <span>*</span></label>#}
+{#                        <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Enter 6-digit pincode" required>#}
+{#                        <div class="error-text" id="pincodeError">Pincode must be exactly 6 digits</div>#}
+{#                    </div>#}
+{#                </div>#}
+{##}
+{#                <!-- Photo & Security -->#}
+{#                <div class="form-section">#}
+{#                    <div class="section-title">#}
+{#                        <i class="fas fa-shield-alt"></i>#}
+{#                        Photo & Security#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group photo-upload">#}
+{#                        <label class="form-label">Profile Photo <span>*</span></label>#}
+{#                        <label for="photo" class="photo-upload-btn">#}
+{#                            <i class="fas fa-cloud-upload-alt"></i>#}
+{#                            <span>Click to upload or drag and drop (JPG, JPEG, PNG)</span>#}
+{#                        </label>#}
+{#                        <input type="file" class="form-control" id="photo" name="photo" accept="image/*" required>#}
+{#                        <div class="photo-preview" id="photoPreview"></div>#}
+{#                        <div class="error-text" id="photoError">Only JPG, JPEG, PNG images are allowed</div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-row">#}
+{#                        <div class="form-group password-container">#}
+{#                            <label class="form-label">Password <span>*</span></label>#}
+{#                            <input type="password" class="form-control" id="password" name="password" placeholder="At least 6 characters" required>#}
+{#                            <button type="button" class="password-toggle" id="passwordToggle">#}
+{#                                <i class="fas fa-eye"></i>#}
+{#                            </button>#}
+{#                            <div class="error-text" id="passwordError">Password must be at least 6 characters</div>#}
+{#                        </div>#}
+{##}
+{#                        <div class="form-group password-container">#}
+{#                            <label class="form-label">Confirm Password <span>*</span></label>#}
+{#                            <input type="password" class="form-control" id="confirmPassword" name="confirmpassword" placeholder="Confirm your password" required>#}
+{#                            <button type="button" class="password-toggle" id="confirmPasswordToggle">#}
+{#                                <i class="fas fa-eye"></i>#}
+{#                            </button>#}
+{#                            <div class="error-text" id="confirmPasswordError">Passwords do not match</div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{##}
+{#                <!-- Buttons -->#}
+{#                <div class="button-group">#}
+{#                    <button type="submit" class="btn-register">#}
+{#                        <i class="fas fa-user-plus"></i> Register#}
+{#                    </button>#}
+{#                    <button type="reset" class="btn-reset">#}
+{#                        <i class="fas fa-redo"></i> Clear#}
+{#                    </button>#}
+{#                </div>#}
+{##}
+{#                <!-- Login Link -->#}
+{#                <div class="login-link">#}
+{#                    <p>Already have an account? <a href="/myapp/login_get/">Sign in here</a></p>#}
+{#                </div>#}
+{#            </form>#}
+{#        </div>#}
+{#    </div>#}
+{##}
+{#    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>#}
+{##}
+{#    <script>#}
+{#        // Theme Toggle#}
+{#        const themeBtn = document.getElementById('themeBtn');#}
+{#        const html = document.documentElement;#}
+{##}
+{#        themeBtn.addEventListener('click', () => {#}
+{#            const currentTheme = html.getAttribute('data-bs-theme');#}
+{#            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';#}
+{#            html.setAttribute('data-bs-theme', newTheme);#}
+{#            themeBtn.innerHTML = newTheme === 'dark' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';#}
+{#            localStorage.setItem('theme', newTheme);#}
+{#        });#}
+{##}
+{#        // Remember theme preference#}
+{#        if (localStorage.getItem('theme') === 'light') {#}
+{#            html.setAttribute('data-bs-theme', 'light');#}
+{#            themeBtn.innerHTML = '<i class="fas fa-sun"></i>';#}
+{#        }#}
+{##}
+{#        // Password Toggle#}
+{#        const passwordToggle = document.getElementById('passwordToggle');#}
+{#        const passwordInput = document.getElementById('password');#}
+{##}
+{#        passwordToggle.addEventListener('click', (e) => {#}
+{#            e.preventDefault();#}
+{#            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';#}
+{#            passwordInput.setAttribute('type', type);#}
+{#            passwordToggle.innerHTML = type === 'password'#}
+{#                ? '<i class="fas fa-eye"></i>'#}
+{#                : '<i class="fas fa-eye-slash"></i>';#}
+{#        });#}
+{##}
+{#        const confirmPasswordToggle = document.getElementById('confirmPasswordToggle');#}
+{#        const confirmPasswordInput = document.getElementById('confirmPassword');#}
+{##}
+{#        confirmPasswordToggle.addEventListener('click', (e) => {#}
+{#            e.preventDefault();#}
+{#            const type = confirmPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';#}
+{#            confirmPasswordInput.setAttribute('type', type);#}
+{#            confirmPasswordToggle.innerHTML = type === 'password'#}
+{#                ? '<i class="fas fa-eye"></i>'#}
+{#                : '<i class="fas fa-eye-slash"></i>';#}
+{#        });#}
+{##}
+{#        // Photo Preview#}
+{#        const photoInput = document.getElementById('photo');#}
+{#        const photoPreview = document.getElementById('photoPreview');#}
+{##}
+{#        photoInput.addEventListener('change', function(e) {#}
+{#            if (this.files && this.files[0]) {#}
+{#                const reader = new FileReader();#}
+{#                reader.onload = (event) => {#}
+{#                    photoPreview.innerHTML = `<img src="${event.target.result}" alt="Photo preview">`;#}
+{#                };#}
+{#                reader.readAsDataURL(this.files[0]);#}
+{#            }#}
+{#        });#}
+{##}
+{#        // Form Validation#}
+{#        document.getElementById('registrationForm').addEventListener('submit', function(e) {#}
+{#            e.preventDefault();#}
+{##}
+{#            // Reset error messages#}
+{#            document.querySelectorAll('.error-text').forEach(el => el.classList.remove('show'));#}
+{#            document.querySelectorAll('.form-control').forEach(el => {#}
+{#                el.classList.remove('is-invalid', 'is-valid');#}
+{#            });#}
+{##}
+{#            let isValid = true;#}
+{##}
+{#            // Full Name Validation - Only letters and spaces, no numbers#}
+{#            const fullname = document.getElementById('fullname').value.trim();#}
+{#            const namePattern = /^[a-zA-Z\s]+$/;#}
+{#            if (!namePattern.test(fullname)) {#}
+{#                document.getElementById('fullnameError').classList.add('show');#}
+{#                document.getElementById('fullname').classList.add('is-invalid');#}
+{#                isValid = false;#}
+{#            } else {#}
+{#                document.getElementById('fullname').classList.add('is-valid');#}
+{#            }#}
+{##}
+{#            // Email Validation - Gmail only#}
+{#            const email = document.getElementById('email').value.trim();#}
+{#            const gmailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;#}
+{#            if (!gmailPattern.test(email)) {#}
+{#                document.getElementById('emailError').classList.add('show');#}
+{#                document.getElementById('email').classList.add('is-invalid');#}
+{#                isValid = false;#}
+{#            } else {#}
+{#                document.getElementById('email').classList.add('is-valid');#}
+{#            }#}
+{##}
+{#            // Phone Validation - 10 digits#}
+{#            const phone = document.getElementById('phone').value.trim();#}
+{#            const phonePattern = /^[0-9]{10}$/;#}
+{#            if (!phonePattern.test(phone)) {#}
+{#                document.getElementById('phoneError').classList.add('show');#}
+{#                document.getElementById('phone').classList.add('is-invalid');#}
+{#                isValid = false;#}
+{#            } else {#}
+{#                document.getElementById('phone').classList.add('is-valid');#}
+{#            }#}
+{##}
+{#            // Pincode Validation - 6 digits#}
+{#            const pincode = document.getElementById('pincode').value.trim();#}
+{#            const pinPattern = /^[0-9]{6}$/;#}
+{#            if (!pinPattern.test(pincode)) {#}
+{#                document.getElementById('pincodeError').classList.add('show');#}
+{#                document.getElementById('pincode').classList.add('is-invalid');#}
+{#                isValid = false;#}
+{#            } else {#}
+{#                document.getElementById('pincode').classList.add('is-valid');#}
+{#            }#}
+{##}
+{#            // Password Validation - At least 6 characters#}
+{#            const password = document.getElementById('password').value;#}
+{#            if (password.length < 6) {#}
+{#                document.getElementById('passwordError').classList.add('show');#}
+{#                document.getElementById('password').classList.add('is-invalid');#}
+{#                isValid = false;#}
+{#            } else {#}
+{#                document.getElementById('password').classList.add('is-valid');#}
+{#            }#}
+{##}
+{#            // Confirm Password Match#}
+{#            const confirmPassword = document.getElementById('confirmPassword').value;#}
+{#            if (password !== confirmPassword) {#}
+{#                document.getElementById('confirmPasswordError').classList.add('show');#}
+{#                document.getElementById('confirmPassword').classList.add('is-invalid');#}
+{#                isValid = false;#}
+{#            } else {#}
+{#                document.getElementById('confirmPassword').classList.add('is-valid');#}
+{#            }#}
+{##}
+{#            // Age Validation - 18+#}
+{#            const dob = document.getElementById('dob').value;#}
+{#            const today = new Date();#}
+{#            const birthDate = new Date(dob);#}
+{#            let age = today.getFullYear() - birthDate.getFullYear();#}
+{#            const monthDiff = today.getMonth() - birthDate.getMonth();#}
+{##}
+{#            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {#}
+{#                age--;#}
+{#            }#}
+{##}
+{#            if (age < 18) {#}
+{#                document.getElementById('dobError').classList.add('show');#}
+{#                document.getElementById('dob').classList.add('is-invalid');#}
+{#                isValid = false;#}
+{#            } else {#}
+{#                document.getElementById('dob').classList.add('is-valid');#}
+{#            }#}
+{##}
+{#            // Photo Validation#}
+{#            const photo = document.getElementById('photo').value;#}
+{#            const allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;#}
+{#            if (!allowedExtensions.exec(photo)) {#}
+{#                document.getElementById('photoError').classList.add('show');#}
+{#                document.getElementById('photo').classList.add('is-invalid');#}
+{#                isValid = false;#}
+{#            } else {#}
+{#                document.getElementById('photo').classList.add('is-valid');#}
+{#            }#}
+{##}
+{#            // Submit if valid#}
+{#            if (isValid) {#}
+{#                this.submit();#}
+{#            }#}
+{#        });#}
+{##}
+{#        // Auto-dismiss alerts after 5 seconds#}
+{#        document.addEventListener('DOMContentLoaded', function() {#}
+{#            const alerts = document.querySelectorAll('.alert');#}
+{#            alerts.forEach(alert => {#}
+{#                setTimeout(() => {#}
+{#                    const bsAlert = new bootstrap.Alert(alert);#}
+{#                    bsAlert.close();#}
+{#                }, 5000);#}
+{#            });#}
+{#        });#}
+{#    </script>#}
+{#</body>#}
+{#</html>#}
+{##}
+
+
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#  <meta charset="UTF-8">#}
+{#  <title>Registration Form</title>#}
+{#  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">#}
+{#</head>#}
+{##}
+{#<body>#}
+{#  <div class="container mt-5">#}
+{#    <h2 class="mb-4">Registration Form</h2>#}
+{##}
+{#    <form method="post" action="/myapp/signup_post/" enctype="multipart/form-data">#}
+{#      {% csrf_token %}#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label class="col-sm-4">Full Name</label>#}
+{#        <div class="col-sm-8">#}
+{#          <input type="text" name="fullname" class="form-control" id="name" required>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label class="col-sm-4">Gender</label>#}
+{#        <div class="col-sm-8">#}
+{#          <input type="radio" name="gender" value="male" required> Male#}
+{#          <input type="radio" name="gender" value="female" required> Female#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label class="col-sm-4">Date of Birth</label>#}
+{#        <div class="col-sm-8">#}
+{#          <input type="date" class="form-control" name="dob" id="dob" required>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label class="col-sm-4">Email</label>#}
+{#        <div class="col-sm-8">#}
+{#          <input type="email" class="form-control" id="email" name="email" required>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label class="col-sm-4">Phone</label>#}
+{#        <div class="col-sm-8">#}
+{#          <input type="tel" class="form-control" id="phone" name="phoneno" required>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label class="col-sm-4">Place</label>#}
+{#        <div class="col-sm-8">#}
+{#          <input type="text" class="form-control" name="place" required>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label class="col-sm-4">City</label>#}
+{#        <div class="col-sm-8">#}
+{#          <input type="text" class="form-control" name="city" required>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label class="col-sm-4">District</label>#}
+{#        <div class="col-sm-8">#}
+{#          <input type="text" class="form-control" name="district" required>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label class="col-sm-4">State</label>#}
+{#        <div class="col-sm-8">#}
+{#          <input type="text" class="form-control" name="state" required>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label class="col-sm-4">Pincode</label>#}
+{#        <div class="col-sm-8">#}
+{#          <input type="text" class="form-control" id="pincode" name="pincode" required>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label class="col-sm-4">Upload Photo</label>#}
+{#        <div class="col-sm-8">#}
+{#          <input type="file" class="form-control" id="photo" name="photo" accept="image/*" required>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label class="col-sm-4">Password</label>#}
+{#        <div class="col-sm-8">#}
+{#          <input type="password" class="form-control" id="password" name="password" required>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label class="col-sm-4">Confirm Password</label>#}
+{#        <div class="col-sm-8">#}
+{#          <input type="password" class="form-control" id="confirmPassword" name="confirmpassword" required>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <div class="offset-sm-4 col-sm-8">#}
+{#          <button type="submit" class="btn btn-primary">Register</button>#}
+{#        </div>#}
+{#      </div>#}
+{#    </form>#}
+{##}
+{#    {% for k in messages %}#}
+{#      {{ k }}#}
+{#    {% endfor %}#}
+{#  </div>#}
+{##}
+{##}
+{#<!-- ✅ Validation Script -->#}
+{#<script>#}
+{#document.querySelector("form").addEventListener("submit", function(e) {#}
+{##}
+{#    let email = document.getElementById("email").value.trim();#}
+{#    let phone = document.getElementById("phone").value.trim();#}
+{#    let dob = document.getElementById("dob").value;#}
+{#    let pincode = document.getElementById("pincode").value.trim();#}
+{#    let password = document.getElementById("password").value;#}
+{#    let confirmPassword = document.getElementById("confirmPassword").value;#}
+{#    let photo = document.getElementById("photo").value;#}
+{##}
+{#    // Gmail validation#}
+{#    let gmailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;#}
+{#    if (!gmailPattern.test(email)) {#}
+{#        alert("Email must be a valid @gmail.com address");#}
+{#        e.preventDefault();#}
+{#        return;#}
+{#    }#}
+{##}
+{#    // Phone validation#}
+{#    let phonePattern = /^[0-9]{10}$/;#}
+{#    if (!phonePattern.test(phone)) {#}
+{#        alert("Phone number must be 10 digits");#}
+{#        e.preventDefault();#}
+{#        return;#}
+{#    }#}
+{##}
+{#    // Pincode validation#}
+{#    let pinPattern = /^[0-9]{6}$/;#}
+{#    if (!pinPattern.test(pincode)) {#}
+{#        alert("Pincode must be 6 digits");#}
+{#        e.preventDefault();#}
+{#        return;#}
+{#    }#}
+{##}
+{#    // Password length#}
+{#    if (password.length < 6) {#}
+{#        alert("Password must be at least 6 characters");#}
+{#        e.preventDefault();#}
+{#        return;#}
+{#    }#}
+{##}
+{#    // Password match#}
+{#    if (password !== confirmPassword) {#}
+{#        alert("Passwords do not match");#}
+{#        e.preventDefault();#}
+{#        return;#}
+{#    }#}
+{##}
+{#    // Age validation (18+)#}
+{#    let today = new Date();#}
+{#    let birthDate = new Date(dob);#}
+{#    let age = today.getFullYear() - birthDate.getFullYear();#}
+{#    let monthDiff = today.getMonth() - birthDate.getMonth();#}
+{##}
+{#    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {#}
+{#        age--;#}
+{#    }#}
+{##}
+{#    if (age < 18) {#}
+{#        alert("You must be at least 18 years old");#}
+{#        e.preventDefault();#}
+{#        return;#}
+{#    }#}
+{##}
+{#    // Image validation#}
+{#    let allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;#}
+{#    if (!allowedExtensions.exec(photo)) {#}
+{#        alert("Only JPG, JPEG, PNG images are allowed");#}
+{#        e.preventDefault();#}
+{#        return;#}
+{#    }#}
+{##}
+{#});#}
+{#</script>#}
+{##}
+{#</body>#}
+{#</html>#}
+
+
+
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#  <meta charset="UTF-8">#}
+{#  <title>Registration Form</title>#}
+{#  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">#}
+{# #}
+{#</head>#}
+{#<body>#}
+{#  <div class="container">#}
+{#    <h2 class="mb-4">Registration Form</h2>#}
+{#    <form method="post"action="/myapp/signup_post/" enctype="multipart/form-data">#}
+{#        {% csrf_token %}      <div class="row mb-3">#}
+{#        <label for="name" class="col-sm-4 ">Full Name</label>#}
+{#        <div class="col-sm-8">#}
+{#          <input type="text" name ="fullname" class="form-control" id="name" required>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label class="col-sm-4 ">Gender</label>#}
+{#        <div class="col-sm-8">#}
+{#          <div class="form-check form-check-inline">#}
+{#            <input class="form-check-input" type="radio" name="gender" value="male" id="male" required>#}
+{#            <label class="form-check-label" for="male">Male</label>#}
+{#          </div>#}
+{#          <div class="form-check form-check-inline">#}
+{#            <input class="form-check-input" type="radio" name="gender" value="female" id="female" required>#}
+{#            <label class="form-check-label" for="female">Female</label>#}
+{#          </div>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label for="dob" class="col-sm-4 ">Date of Birth</label>#}
+{#        <div class="col-sm-8">#}
+{#          <input type="date" class="form-control" name="dob" id="dob" required>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label for="email" class="col-sm-4 ">Email address</label>#}
+{#        <div class="col-sm-8">#}
+{#          <input type="email" class="form-control" id="email" name="email"required>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label for="phone" class="col-sm-4 ">Phone Number</label>#}
+{#        <div class="col-sm-8">#}
+{#          <input type="tel" pattern="[0-9]{10}" class="form-control" id="phone" name="phoneno"required>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label for="place" class="col-sm-4 ">Place</label>#}
+{#        <div class="col-sm-8">#}
+{#          <input type="text" class="form-control" id="place" name="place"required>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label for="city" class="col-sm-4 ">City</label>#}
+{#        <div class="col-sm-8">#}
+{#          <input type="text" class="form-control" id="city"name="city" required>#}
+{#        </div>#}
+{#      </div>#}
+{#        <div class="row mb-3">#}
+{#        <label for="city" class="col-sm-4 ">District</label>#}
+{#        <div class="col-sm-8">#}
+{#          <input type="text" class="form-control" id="city"name="district" required>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label for="state" class="col-sm-4 ">State</label>#}
+{#        <div class="col-sm-8">#}
+{#          <input type="text" class="form-control" id="state" name="state"required>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label for="pincode" class="col-sm-4 ">Pincode</label>#}
+{#        <div class="col-sm-8">#}
+{#          <input type="text" pattern="[0-9]{6}" class="form-control" id="pincode" name="pincode"required>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label for="photo" class="col-sm-4 ">Upload Photo</label>#}
+{#        <div class="col-sm-8">#}
+{#          <input type="file" class="form-control" id="photo"name="photo" accept="image/*" required>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label for="password" class="col-sm-4 ">Password</label>#}
+{#        <div class="col-sm-8">#}
+{#          <input type="password" class="form-control" id="password" name="password"minlength="6" required>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label for="confirmPassword" class="col-sm-4 ">Confirm Password</label>#}
+{#        <div class="col-sm-8">#}
+{#          <input type="password" class="form-control" id="confirmPassword" name="confirmpassword"required>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <div class="offset-sm-4 col-sm-8">#}
+{#          <button type="submit" class="btn btn-primary">Register</button>#}
+{#        </div>#}
+{#      </div>#}
+{#    </form>#}
+{#      {% for k in messages %}#}
+{#      {{ k }}#}
+{#      {% endfor %}#}
+{#  </div>#}
+{#  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>#}
+{#</body>#}
+{#</html>#}
