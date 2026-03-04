@@ -1,60 +1,985 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#  <meta charset="UTF-8">#}
+{#  <title>Rate & Review</title>#}
+{#  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">#}
+{##}
+{#  <!-- Optional: Font Awesome for star icons -->#}
+{#  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">#}
+{#</head>#}
+{#<body>#}
+
+{% extends 'users/users_home.html' %}
+{% block body %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
-  <meta charset="UTF-8">
-  <title>Rate & Review</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Review • Diabetic Distress Detection</title>
 
-  <!-- Optional: Font Awesome for star icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* ===== YOUR ORIGINAL DESIGN CSS (UNCHANGED) ===== */
+        *{margin:0;padding:0;box-sizing:border-box;}
+
+        :root{
+            --primary-color:#3498db;
+            --secondary-color:#2980b9;
+            --success-color:#27ae60;
+            --danger-color:#e74c3c;
+            --warning-color:#f39c12;
+            --light-bg:#f8f9fa;
+            --card-bg:#ffffff;
+            --text-dark:#2c3e50;
+            --text-light:#7f8c8d;
+            --border-color:#ecf0f1;
+        }
+
+        [data-bs-theme="dark"]{
+            --light-bg:#1a1a2e;
+            --card-bg:#16213e;
+            --text-dark:#ecf0f1;
+            --text-light:#bdc3c7;
+            --border-color:#34495e;
+        }
+
+        body{
+            font-family:'Poppins',sans-serif;
+            background:var(--light-bg);
+            color:var(--text-dark);
+            padding:2rem 0;
+        }
+
+        .review-container{max-width:750px;margin:0 auto;padding:0 1rem;}
+
+        .review-header{
+            background:linear-gradient(135deg,#3498db 0%,#2980b9 100%);
+            color:white;padding:3rem 2rem;border-radius:16px;
+            margin-bottom:2rem;text-align:center;
+        }
+
+        .review-header-icon{font-size:3.5rem;margin-bottom:1rem;}
+        .review-header h2{font-size:2rem;font-weight:700;}
+
+        .review-card{
+            background:var(--card-bg);
+            border-radius:16px;
+            border:1px solid var(--border-color);
+            overflow:hidden;margin-bottom:2rem;
+        }
+
+        .review-section-header{
+            background:linear-gradient(135deg,#3498db,#2980b9);
+            color:white;padding:1.5rem 2rem;
+            display:flex;align-items:center;gap:1rem;
+        }
+
+        .review-section-content{padding:2rem;}
+
+        .review-form-group{margin-bottom:2rem;}
+
+        .review-label{
+            display:block;font-weight:600;color:#3498db;
+            font-size:0.95rem;margin-bottom:1rem;
+        }
+
+        .star-rating{
+            display:inline-flex;
+            gap:0.75rem;
+            align-items:center;
+            justify-content:center;
+            margin:1.5rem 0;
+        }
+
+        .star-option{
+            position:relative;
+            cursor:pointer;
+            font-size:3rem;
+        }
+
+        .star-option input{display:none;}
+
+        .star-option label{
+            display:block;
+            cursor:pointer;
+            color:#bdc3c7;
+            transition:all 0.2s ease;
+            padding:0.5rem;
+        }
+
+        .review-textarea{
+            border:1.5px solid var(--border-color);
+            border-radius:8px;
+            padding:1rem;
+            font-size:0.95rem;
+            background:var(--light-bg);
+            color:var(--text-dark);
+            resize:vertical;
+            min-height:180px;
+            width:100%;
+        }
+
+        .review-actions{
+            padding:2rem;
+            background:var(--light-bg);
+            border-top:1px solid var(--border-color);
+            display:flex;
+            gap:1rem;
+            justify-content:flex-end;
+        }
+
+        .btn-submit{
+            background:linear-gradient(135deg,#3498db,#2980b9);
+            color:white;border:none;
+            padding:0.9rem 2.5rem;
+            border-radius:8px;
+            font-weight:600;
+            cursor:pointer;
+        }
+
+        .btn-cancel{
+            background:var(--card-bg);
+            color:#3498db;
+            border:1.5px solid #3498db;
+            padding:0.9rem 2.5rem;
+            border-radius:8px;
+            font-weight:600;
+            text-decoration:none;
+        }
+
+        .error-message{
+            color:var(--danger-color);
+            font-size:0.85rem;
+            display:none;
+        }
+
+        .error-message.show{display:block;}
+    </style>
 </head>
+
 <body>
-  <div class="container mt-5">
-    <h4 class="mb-4">Rate and Review</h4>
-    <form>
-      <!-- Name -->
-      <div class="mb-3">
-        <label for="userName" class="form-label">Your Name</label>
-        <input type="text" class="form-control" id="userName"name="user" required>
-      </div>
+<div class="review-container">
 
-      <!-- Rating (Stars) -->
-      <div class="mb-3">
-        <label class="form-label d-block">Rating</label>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="rating" id="rate1" value="1" required>
-          <label class="form-check-label" for="rate1"><i class="fas fa-star text-warning"></i></label>
+    <div class="review-header">
+        <div class="review-header-icon">
+            <i class="fas fa-star"></i>
         </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="rating" id="rate2" value="2">
-          <label class="form-check-label" for="rate2"><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i></label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="rating" id="rate3" value="3">
-          <label class="form-check-label" for="rate3"><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i></label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="rating" id="rate4" value="4">
-          <label class="form-check-label" for="rate4"><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i></label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="rating" id="rate5" value="5">
-          <label class="form-check-label" for="rate5"><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i></label>
-        </div>
-      </div>
+        <h2>Share Your Feedback</h2>
+        <p>Your review helps us improve the platform</p>
+    </div>
 
-      <!-- Review Text -->
-      <div class="mb-3">
-        <label for="reviewText" class="form-label">Your Review</label>
-        <textarea class="form-control" id="reviewText" rows="4" placeholder="Write your review here..." required></textarea>
-      </div>
+    <form id="reviewForm" action="/myapp/ratingandreview_post/" method="POST">
+        {% csrf_token %}
 
-      <!-- Submit Button -->
-      <button type="submit" class="btn btn-success">Submit Review</button>
+        <div class="review-card">
+            <div class="review-section-header">
+                <i class="fas fa-heart"></i>
+                <h4>Your Review</h4>
+            </div>
+
+            <div class="review-section-content">
+
+                <!-- Rating -->
+                <div class="review-form-group">
+                    <label class="review-label">
+                        Rate Your Experience <span style="color:red">*</span>
+                    </label>
+
+                    <div class="star-rating" id="starRating">
+
+                        {% for i in "12345" %}
+                        <div class="star-option">
+                            <input type="radio" name="rating" id="rate{{i}}" value="{{i}}" required>
+                            <label for="rate{{i}}"><i class="fas fa-star"></i></label>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+
+                    <div class="error-message" id="ratingError">
+                        Please select a rating
+                    </div>
+                </div>
+
+                <!-- Review Text -->
+                <div class="review-form-group">
+                    <label class="review-label">
+                        Your Review <span style="color:red">*</span>
+                    </label>
+
+                    <textarea class="review-textarea"
+                              id="reviewText"
+                              name="review"
+                              required
+                              maxlength="1000"
+                              placeholder="Share your experience..."></textarea>
+
+                    <div class="error-message" id="reviewError">
+                        Review must be at least 10 characters long
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="review-actions">
+            <a href="/myapp/userhome_get/" class="btn-cancel">Cancel</a>
+            <button type="submit" class="btn-submit">
+                Submit Review
+            </button>
+        </div>
+
     </form>
-  </div>
+</div>
 
-  <!-- Bootstrap + Font Awesome Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+/* ===== UPDATED STAR LOGIC (DESIGN SAME) ===== */
+
+const ratingInputs = document.querySelectorAll('input[name="rating"]');
+const starOptions = document.querySelectorAll('.star-option');
+
+starOptions.forEach((option, index) => {
+
+    const input = option.querySelector('input');
+    const label = option.querySelector('label');
+
+    label.addEventListener('click', function(){
+
+        ratingInputs.forEach(inp => inp.checked = false);
+        input.checked = true;
+
+        starOptions.forEach((opt, i) => {
+            const lbl = opt.querySelector('label');
+            if(i <= index){
+                lbl.style.color = '#3498db';
+                lbl.style.transform = 'scale(1.2)';
+            } else {
+                lbl.style.color = '#bdc3c7';
+                lbl.style.transform = 'scale(1)';
+            }
+        });
+
+        document.getElementById('ratingError').classList.remove('show');
+    });
+
+});
+
+/* Hover Effect */
+starOptions.forEach((option, index) => {
+
+    const label = option.querySelector('label');
+
+    label.addEventListener('mouseenter', function(){
+        starOptions.forEach((opt, i)=>{
+            const lbl = opt.querySelector('label');
+            if(i <= index){
+                lbl.style.color = '#3498db';
+            } else {
+                lbl.style.color = '#bdc3c7';
+            }
+        });
+    });
+
+});
+
+document.getElementById('starRating').addEventListener('mouseleave', function(){
+
+    const selected = document.querySelector('input[name="rating"]:checked');
+    const selectedIndex = selected ? Array.from(ratingInputs).indexOf(selected) : -1;
+
+    starOptions.forEach((option, i)=>{
+        const lbl = option.querySelector('label');
+        if(i <= selectedIndex){
+            lbl.style.color = '#3498db';
+        } else {
+            lbl.style.color = '#bdc3c7';
+        }
+    });
+
+});
+</script>
+
 </body>
 </html>
+{% endblock %}
+
+
+{#{% extends 'users/users_home.html' %}#}
+{#{% block body %}#}
+{#<!DOCTYPE html>#}
+{#<html lang="en" data-bs-theme="dark">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
+{#    <title>Send Review • Diabetic Distress Detection</title>#}
+{##}
+{#    <!-- Bootstrap 5.3 -->#}
+{#    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">#}
+{##}
+{#    <!-- Google Fonts -->#}
+{#    <link rel="preconnect" href="https://fonts.googleapis.com">#}
+{#    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>#}
+{#    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">#}
+{##}
+{#    <!-- Font Awesome -->#}
+{#    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">#}
+{##}
+{#    <style>#}
+{#        * {#}
+{#            margin: 0;#}
+{#            padding: 0;#}
+{#            box-sizing: border-box;#}
+{#        }#}
+{##}
+{#        :root {#}
+{#            --primary-color: #3498db;#}
+{#            --secondary-color: #2980b9;#}
+{#            --success-color: #27ae60;#}
+{#            --danger-color: #e74c3c;#}
+{#            --warning-color: #f39c12;#}
+{#            --light-bg: #f8f9fa;#}
+{#            --card-bg: #ffffff;#}
+{#            --text-dark: #2c3e50;#}
+{#            --text-light: #7f8c8d;#}
+{#            --border-color: #ecf0f1;#}
+{#        }#}
+{##}
+{#        [data-bs-theme="dark"] {#}
+{#            --primary-color: #3498db;#}
+{#            --secondary-color: #2980b9;#}
+{#            --success-color: #27ae60;#}
+{#            --danger-color: #e74c3c;#}
+{#            --warning-color: #f39c12;#}
+{#            --light-bg: #1a1a2e;#}
+{#            --card-bg: #16213e;#}
+{#            --text-dark: #ecf0f1;#}
+{#            --text-light: #bdc3c7;#}
+{#            --border-color: #34495e;#}
+{#        }#}
+{##}
+{#        body {#}
+{#            font-family: 'Poppins', sans-serif;#}
+{#            background: var(--light-bg);#}
+{#            color: var(--text-dark);#}
+{#            padding: 2rem 0;#}
+{#            min-height: 100vh;#}
+{#        }#}
+{##}
+{#        /* Review Container */#}
+{#        .review-container {#}
+{#            max-width: 750px;#}
+{#            margin: 0 auto;#}
+{#            padding: 0 1rem;#}
+{#        }#}
+{##}
+{#        /* Header Section */#}
+{#        .review-header {#}
+{#            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);#}
+{#            color: white;#}
+{#            padding: 3rem 2rem;#}
+{#            border-radius: 16px;#}
+{#            margin-bottom: 2rem;#}
+{#            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);#}
+{#            text-align: center;#}
+{#        }#}
+{##}
+{#        .review-header-icon {#}
+{#            font-size: 3.5rem;#}
+{#            margin-bottom: 1rem;#}
+{#            display: inline-block;#}
+{#        }#}
+{##}
+{#        .review-header h2 {#}
+{#            font-size: 2rem;#}
+{#            font-weight: 700;#}
+{#            margin-bottom: 0.5rem;#}
+{#        }#}
+{##}
+{#        .review-header p {#}
+{#            font-size: 1rem;#}
+{#            opacity: 0.95;#}
+{#            margin: 0;#}
+{#            line-height: 1.6;#}
+{#        }#}
+{##}
+{#        /* Main Review Card */#}
+{#        .review-card {#}
+{#            background: var(--card-bg);#}
+{#            border-radius: 16px;#}
+{#            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);#}
+{#            border: 1px solid var(--border-color);#}
+{#            overflow: hidden;#}
+{#            margin-bottom: 2rem;#}
+{#        }#}
+{##}
+{#        /* Section Headers */#}
+{#        .review-section-header {#}
+{#            background: linear-gradient(135deg, #3498db, #2980b9);#}
+{#            color: white;#}
+{#            padding: 1.5rem 2rem;#}
+{#            display: flex;#}
+{#            align-items: center;#}
+{#            gap: 1rem;#}
+{#        }#}
+{##}
+{#        .review-section-header i {#}
+{#            font-size: 1.5rem;#}
+{#        }#}
+{##}
+{#        .review-section-header h4 {#}
+{#            margin: 0;#}
+{#            font-size: 1.2rem;#}
+{#            font-weight: 600;#}
+{#        }#}
+{##}
+{#        /* Section Content */#}
+{#        .review-section-content {#}
+{#            padding: 2rem;#}
+{#        }#}
+{##}
+{#        /* Form Group */#}
+{#        .review-form-group {#}
+{#            margin-bottom: 2rem;#}
+{#        }#}
+{##}
+{#        .review-form-group:last-child {#}
+{#            margin-bottom: 0;#}
+{#        }#}
+{##}
+{#        .review-label {#}
+{#            display: block;#}
+{#            font-weight: 600;#}
+{#            color: #3498db;#}
+{#            font-size: 0.95rem;#}
+{#            text-transform: uppercase;#}
+{#            letter-spacing: 0.5px;#}
+{#            margin-bottom: 1rem;#}
+{#            display: flex;#}
+{#            align-items: center;#}
+{#            gap: 0.5rem;#}
+{#        }#}
+{##}
+{#        .review-label i {#}
+{#            font-size: 1.1rem;#}
+{#        }#}
+{##}
+{#        .review-label span {#}
+{#            color: var(--danger-color);#}
+{#            margin-left: 0.25rem;#}
+{#        }#}
+{##}
+{#        /* Star Rating */#}
+{#        .star-rating {#}
+{#            display: flex;#}
+{#            gap: 1rem;#}
+{#            align-items: center;#}
+{#            justify-content: center;#}
+{#            flex-wrap: wrap;#}
+{#        }#}
+{##}
+{#        .star-option {#}
+{#            position: relative;#}
+{#            cursor: pointer;#}
+{#        }#}
+{##}
+{#        .star-option input[type="radio"] {#}
+{#            display: none;#}
+{#        }#}
+{##}
+{#        .star-display {#}
+{#            display: inline-block;#}
+{#            font-size: 4rem;#}
+{#            transition: all 0.3s ease;#}
+{#            color: #bdc3c7;#}
+{#            filter: drop-shadow(0 0 0px transparent);#}
+{#        }#}
+{##}
+{#        .star-option input[type="radio"]:checked ~ .star-display {#}
+{#            color: #3498db;#}
+{#            filter: drop-shadow(0 0 10px rgba(52, 152, 219, 0.5));#}
+{#            transform: scale(1.2);#}
+{#        }#}
+{##}
+{#        .star-option:hover .star-display {#}
+{#            color: #3498db;#}
+{#            transform: scale(1.15);#}
+{#            filter: drop-shadow(0 0 8px rgba(52, 152, 219, 0.4));#}
+{#        }#}
+{##}
+{#        .star-label-text {#}
+{#            font-size: 0.85rem;#}
+{#            font-weight: 500;#}
+{#            color: var(--text-light);#}
+{#            margin-top: 0.5rem;#}
+{#            text-align: center;#}
+{#            display: none;#}
+{#        }#}
+{##}
+{#        /* Rating Display */#}
+{#        .rating-display {#}
+{#            display: flex;#}
+{#            align-items: center;#}
+{#            gap: 1rem;#}
+{#            margin-top: 1.5rem;#}
+{#            padding: 1rem;#}
+{#            background: rgba(52, 152, 219, 0.1);#}
+{#            border-radius: 8px;#}
+{#            border-left: 4px solid #3498db;#}
+{#        }#}
+{##}
+{#        .rating-display-stars {#}
+{#            font-size: 1.5rem;#}
+{#            min-width: 150px;#}
+{#        }#}
+{##}
+{#        .rating-display-text {#}
+{#            color: var(--text-dark);#}
+{#            font-weight: 500;#}
+{#        }#}
+{##}
+{#        /* Textarea */#}
+{#        .review-textarea {#}
+{#            border: 1.5px solid var(--border-color);#}
+{#            border-radius: 8px;#}
+{#            padding: 1rem;#}
+{#            font-family: 'Poppins', sans-serif;#}
+{#            font-size: 0.95rem;#}
+{#            transition: all 0.3s ease;#}
+{#            background: var(--light-bg);#}
+{#            color: var(--text-dark);#}
+{#            resize: vertical;#}
+{#            min-height: 180px;#}
+{#            width: 100%;#}
+{#        }#}
+{##}
+{#        [data-bs-theme="dark"] .review-textarea {#}
+{#            background: rgba(255, 255, 255, 0.05);#}
+{#            color: var(--text-dark);#}
+{#            border-color: rgba(255, 255, 255, 0.1);#}
+{#        }#}
+{##}
+{#        .review-textarea:focus {#}
+{#            border-color: #3498db;#}
+{#            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);#}
+{#            background: var(--card-bg);#}
+{#            outline: none;#}
+{#        }#}
+{##}
+{#        .review-textarea.is-invalid {#}
+{#            border-color: var(--danger-color);#}
+{#            background: rgba(231, 76, 60, 0.05);#}
+{#        }#}
+{##}
+{#        .review-textarea.is-valid {#}
+{#            border-color: var(--success-color);#}
+{#        }#}
+{##}
+{#        /* Character Count */#}
+{#        .char-count {#}
+{#            font-size: 0.85rem;#}
+{#            color: var(--text-light);#}
+{#            margin-top: 0.75rem;#}
+{#            text-align: right;#}
+{#        }#}
+{##}
+{#        .char-count.warning {#}
+{#            color: var(--warning-color);#}
+{#        }#}
+{##}
+{#        /* Error Message */#}
+{#        .error-message {#}
+{#            color: var(--danger-color);#}
+{#            font-size: 0.85rem;#}
+{#            margin-top: 0.5rem;#}
+{#            display: none;#}
+{#        }#}
+{##}
+{#        .error-message.show {#}
+{#            display: block;#}
+{#        }#}
+{##}
+{#        /* Info Box */#}
+{#        .review-info-box {#}
+{#            background: rgba(52, 152, 219, 0.1);#}
+{#            border-left: 4px solid #3498db;#}
+{#            padding: 1.5rem;#}
+{#            border-radius: 8px;#}
+{#            margin-bottom: 1.5rem;#}
+{#            display: flex;#}
+{#            gap: 1rem;#}
+{#        }#}
+{##}
+{#        .review-info-box i {#}
+{#            color: #3498db;#}
+{#            font-size: 1.3rem;#}
+{#            margin-top: 0.25rem;#}
+{#            flex-shrink: 0;#}
+{#        }#}
+{##}
+{#        .review-info-box p {#}
+{#            margin: 0;#}
+{#            color: var(--text-dark);#}
+{#            font-size: 0.95rem;#}
+{#            line-height: 1.6;#}
+{#        }#}
+{##}
+{#        /* Form Actions */#}
+{#        .review-actions {#}
+{#            padding: 2rem;#}
+{#            background: var(--light-bg);#}
+{#            border-top: 1px solid var(--border-color);#}
+{#            display: flex;#}
+{#            gap: 1rem;#}
+{#            justify-content: flex-end;#}
+{#        }#}
+{##}
+{#        .btn-submit {#}
+{#            background: linear-gradient(135deg, #3498db, #2980b9);#}
+{#            color: white;#}
+{#            border: none;#}
+{#            padding: 0.9rem 2.5rem;#}
+{#            border-radius: 8px;#}
+{#            font-weight: 600;#}
+{#            font-size: 0.95rem;#}
+{#            cursor: pointer;#}
+{#            transition: all 0.3s ease;#}
+{#            display: inline-flex;#}
+{#            align-items: center;#}
+{#            gap: 0.75rem;#}
+{#        }#}
+{##}
+{#        .btn-submit:hover {#}
+{#            transform: translateY(-2px);#}
+{#            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.3);#}
+{#            color: white;#}
+{#        }#}
+{##}
+{#        .btn-submit:active {#}
+{#            transform: translateY(0);#}
+{#        }#}
+{##}
+{#        .btn-cancel {#}
+{#            background: var(--card-bg);#}
+{#            color: #3498db;#}
+{#            border: 1.5px solid #3498db;#}
+{#            padding: 0.9rem 2.5rem;#}
+{#            border-radius: 8px;#}
+{#            font-weight: 600;#}
+{#            font-size: 0.95rem;#}
+{#            cursor: pointer;#}
+{#            transition: all 0.3s ease;#}
+{#            display: inline-flex;#}
+{#            align-items: center;#}
+{#            gap: 0.75rem;#}
+{#            text-decoration: none;#}
+{#        }#}
+{##}
+{#        .btn-cancel:hover {#}
+{#            background: rgba(52, 152, 219, 0.1);#}
+{#            color: #3498db;#}
+{#            text-decoration: none;#}
+{#        }#}
+{##}
+{#        /* Character limit styles */#}
+{#        .char-limit-bar {#}
+{#            width: 100%;#}
+{#            height: 4px;#}
+{#            background: var(--border-color);#}
+{#            border-radius: 2px;#}
+{#            margin-top: 0.75rem;#}
+{#            overflow: hidden;#}
+{#        }#}
+{##}
+{#        .char-limit-progress {#}
+{#            height: 100%;#}
+{#            background: linear-gradient(90deg, #27ae60, #f39c12, #e74c3c);#}
+{#            width: 0%;#}
+{#            transition: width 0.2s ease;#}
+{#            border-radius: 2px;#}
+{#        }#}
+{##}
+{#        /* Responsive */#}
+{#        @media (max-width: 768px) {#}
+{#            .review-header h2 {#}
+{#                font-size: 1.5rem;#}
+{#            }#}
+{##}
+{#            .review-header-icon {#}
+{#                font-size: 2.5rem;#}
+{#            }#}
+{##}
+{#            .star-rating {#}
+{#                justify-content: center;#}
+{#            }#}
+{##}
+{#            .star-display {#}
+{#                font-size: 2rem;#}
+{#            }#}
+{##}
+{#            .review-actions {#}
+{#                flex-direction: column;#}
+{#            }#}
+{##}
+{#            .btn-submit,#}
+{#            .btn-cancel {#}
+{#                width: 100%;#}
+{#                justify-content: center;#}
+{#            }#}
+{##}
+{#            .rating-display {#}
+{#                flex-direction: column;#}
+{#            }#}
+{#        }#}
+{#    </style>#}
+{#</head>#}
+{#<body>#}
+{#    <div class="review-container">#}
+{#        <!-- Header -->#}
+{#        <div class="review-header">#}
+{#            <div class="review-header-icon">#}
+{#                <i class="fas fa-star"></i>#}
+{#            </div>#}
+{#            <h2>Share Your Feedback</h2>#}
+{#            <p>Your review helps us improve the Diabetic Distress Detection platform</p>#}
+{#        </div>#}
+{##}
+{#        <!-- Info Box -->#}
+{#        <div class="review-info-box">#}
+{#            <i class="fas fa-lightbulb"></i>#}
+{#            <div>#}
+{#                <p><strong>Your feedback matters:</strong> Help us understand your experience and improve our services for all users.</p>#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#        <!-- Review Form -->#}
+{#        <form id="reviewForm" action="/myapp/ratingandreview_post/" method="POST">#}
+{#            {% csrf_token %}#}
+{##}
+{#            <!-- Review Card -->#}
+{#            <div class="review-card">#}
+{#                <div class="review-section-header">#}
+{#                    <i class="fas fa-heart"></i>#}
+{#                    <h4>Your Review</h4>#}
+{#                </div>#}
+{#                <div class="review-section-content">#}
+{#                    <!-- Rating Section -->#}
+{#                    <div class="review-form-group">#}
+{#                        <label class="review-label">#}
+{#                            <i class="fas fa-star"></i>#}
+{#                            Rate Your Experience <span>*</span>#}
+{#                        </label>#}
+{#                        <div class="star-rating" id="starRating">#}
+{#                            <div class="star-option">#}
+{#                                <input type="radio" name="rating" id="rate1" value="1" required>#}
+{#                                <label for="rate1">#}
+{#                                    <div class="star-display">#}
+{#                                        <i class="fas fa-star"></i>#}
+{#                                    </div>#}
+{#                                </label>#}
+{#                            </div>#}
+{#                            <div class="star-option">#}
+{#                                <input type="radio" name="rating" id="rate2" value="2">#}
+{#                                <label for="rate2">#}
+{#                                    <div class="star-display">#}
+{#                                        <i class="fas fa-star"></i>#}
+{#                                    </div>#}
+{#                                </label>#}
+{#                            </div>#}
+{#                            <div class="star-option">#}
+{#                                <input type="radio" name="rating" id="rate3" value="3">#}
+{#                                <label for="rate3">#}
+{#                                    <div class="star-display">#}
+{#                                        <i class="fas fa-star"></i>#}
+{#                                    </div>#}
+{#                                </label>#}
+{#                            </div>#}
+{#                            <div class="star-option">#}
+{#                                <input type="radio" name="rating" id="rate4" value="4">#}
+{#                                <label for="rate4">#}
+{#                                    <div class="star-display">#}
+{#                                        <i class="fas fa-star"></i>#}
+{#                                    </div>#}
+{#                                </label>#}
+{#                            </div>#}
+{#                            <div class="star-option">#}
+{#                                <input type="radio" name="rating" id="rate5" value="5">#}
+{#                                <label for="rate5">#}
+{#                                    <div class="star-display">#}
+{#                                        <i class="fas fa-star"></i>#}
+{#                                    </div>#}
+{#                                </label>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div class="error-message" id="ratingError">Please select a rating</div>#}
+{#                    </div>#}
+{##}
+{#                    <!-- Review Text -->#}
+{#                    <div class="review-form-group">#}
+{#                        <label class="review-label">#}
+{#                            <i class="fas fa-comments"></i>#}
+{#                            Your Review <span>*</span>#}
+{#                        </label>#}
+{#                        <textarea class="review-textarea" id="reviewText" name="review"#}
+{#                                  placeholder="Share your experience with the platform..."#}
+{#                                  required maxlength="1000"></textarea>#}
+{#                        <div class="char-limit-bar">#}
+{#                            <div class="char-limit-progress" id="charProgress"></div>#}
+{#                        </div>#}
+{#                        <div class="char-count" id="charCount">0 / 1000 characters</div>#}
+{#                        <div class="error-message" id="reviewError">Review must be at least 10 characters long</div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{##}
+{#            <!-- Action Buttons -->#}
+{#            <div class="review-actions">#}
+{#                <a href="/myapp/user_home/" class="btn-cancel">#}
+{#                    <i class="fas fa-times"></i>#}
+{#                    Cancel#}
+{#                </a>#}
+{#                <button type="submit" class="btn-submit">#}
+{#                    <i class="fas fa-paper-plane"></i>#}
+{#                    Submit Review#}
+{#                </button>#}
+{#            </div>#}
+{#        </form>#}
+{#    </div>#}
+{##}
+{#    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>#}
+{##}
+{#    <script>#}
+{#        // Star Rating Selection#}
+{#        const ratingInputs = document.querySelectorAll('input[name="rating"]');#}
+{##}
+{#        ratingInputs.forEach(input => {#}
+{#            input.addEventListener('change', function() {#}
+{#                document.getElementById('ratingError').classList.remove('show');#}
+{#            });#}
+{#        });#}
+{##}
+{#        // Character Counter#}
+{#        const reviewTextarea = document.getElementById('reviewText');#}
+{#        const charCount = document.getElementById('charCount');#}
+{#        const charProgress = document.getElementById('charProgress');#}
+{##}
+{#        reviewTextarea.addEventListener('input', function() {#}
+{#            const count = this.value.length;#}
+{#            const maxLength = this.maxLength;#}
+{#            const percentage = (count / maxLength) * 100;#}
+{##}
+{#            charCount.textContent = `${count} / ${maxLength} characters`;#}
+{#            charProgress.style.width = percentage + '%';#}
+{##}
+{#            if (percentage > 80) {#}
+{#                charCount.classList.add('warning');#}
+{#            } else {#}
+{#                charCount.classList.remove('warning');#}
+{#            }#}
+{#        });#}
+{##}
+{#        // Form Validation#}
+{#        document.getElementById('reviewForm').addEventListener('submit', function(e) {#}
+{#            e.preventDefault();#}
+{##}
+{#            // Reset error messages#}
+{#            document.querySelectorAll('.error-message').forEach(el => el.classList.remove('show'));#}
+{#            document.querySelectorAll('.review-textarea').forEach(el => {#}
+{#                el.classList.remove('is-invalid', 'is-valid');#}
+{#            });#}
+{##}
+{#            let isValid = true;#}
+{##}
+{#            // Check if rating is selected#}
+{#            const selectedRating = document.querySelector('input[name="rating"]:checked');#}
+{#            if (!selectedRating) {#}
+{#                document.getElementById('ratingError').classList.add('show');#}
+{#                isValid = false;#}
+{#            }#}
+{##}
+{#            // Review Validation - At least 10 characters#}
+{#            const review = document.getElementById('reviewText').value.trim();#}
+{#            if (review.length < 10) {#}
+{#                document.getElementById('reviewError').classList.add('show');#}
+{#                document.getElementById('reviewText').classList.add('is-invalid');#}
+{#                isValid = false;#}
+{#            } else if (review.length > 1000) {#}
+{#                document.getElementById('reviewError').textContent = 'Review cannot exceed 1000 characters';#}
+{#                document.getElementById('reviewError').classList.add('show');#}
+{#                document.getElementById('reviewText').classList.add('is-invalid');#}
+{#                isValid = false;#}
+{#            } else {#}
+{#                document.getElementById('reviewText').classList.add('is-valid');#}
+{#            }#}
+{##}
+{#            // Submit if valid#}
+{#            if (isValid) {#}
+{#                this.submit();#}
+{#            } else {#}
+{#                // Scroll to first error#}
+{#                window.scrollTo({ top: 0, behavior: 'smooth' });#}
+{#            }#}
+{#        });#}
+{##}
+{#        // Theme preference from parent page#}
+{#        if (localStorage.getItem('theme') === 'light') {#}
+{#            document.documentElement.setAttribute('data-bs-theme', 'light');#}
+{#        }#}
+{#    </script>#}
+{#</body>#}
+{#</html>#}
+{#{% endblock %}#}
+
+{#{% extends 'users/user_home.html' %}#}
+{#{% block body %}#}
+{##}
+{#  <div class="container mt-5">#}
+{#    <h4 class="mb-4">Rate and Review</h4>#}
+{#    <form>#}
+{##}
+{##}
+{#      <!-- Rating (Stars) -->#}
+{#      <div class="mb-3">#}
+{#        <label class="form-label d-block">Rating</label>#}
+{#        <div class="form-check form-check-inline">#}
+{#          <input class="form-check-input" type="radio" name="rating" id="rate1" value="1" required>#}
+{#          <label class="form-check-label" for="rate1"><i class="fas fa-star text-warning"></i></label>#}
+{#        </div>#}
+{#        <div class="form-check form-check-inline">#}
+{#          <input class="form-check-input" type="radio" name="rating" id="rate2" value="2">#}
+{#          <label class="form-check-label" for="rate2"><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i></label>#}
+{#        </div>#}
+{#        <div class="form-check form-check-inline">#}
+{#          <input class="form-check-input" type="radio" name="rating" id="rate3" value="3">#}
+{#          <label class="form-check-label" for="rate3"><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i></label>#}
+{#        </div>#}
+{#        <div class="form-check form-check-inline">#}
+{#          <input class="form-check-input" type="radio" name="rating" id="rate4" value="4">#}
+{#          <label class="form-check-label" for="rate4"><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i></label>#}
+{#        </div>#}
+{#        <div class="form-check form-check-inline">#}
+{#          <input class="form-check-input" type="radio" name="rating" id="rate5" value="5">#}
+{#          <label class="form-check-label" for="rate5"><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i></label>#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <!-- Review Text -->#}
+{#      <div class="mb-3">#}
+{#        <label for="reviewText" class="form-label">Your Review</label>#}
+{#        <textarea class="form-control" id="reviewText" rows="4" placeholder="Write your review here..." required></textarea>#}
+{#      </div>#}
+{##}
+{#      <!-- Submit Button -->#}
+{#      <button type="submit" class="btn btn-success">Submit Review</button>#}
+{#    </form>#}
+{#  </div>#}
+{##}
+{#  <!-- Bootstrap + Font Awesome Scripts -->#}
+{#  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>#}
+{#</body>#}
+{#</html>#}
+{#{% endblock %}#}
