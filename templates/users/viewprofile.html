@@ -1,97 +1,657 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#  <meta charset="UTF-8">#}
+{#  <title>Registration Form</title>#}
+{#  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">#}
+{# #}
+{#</head>#}
+
+
+{% extends 'users/users_home.html' %}
+{% block body %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
-  <meta charset="UTF-8">
-  <title>Registration Form</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
- 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Profile • Diabetic Distress Detection</title>
+
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2980b9;
+            --success-color: #27ae60;
+            --danger-color: #e74c3c;
+            --light-bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --border-color: #ecf0f1;
+        }
+
+        [data-bs-theme="dark"] {
+            --primary-color: #3498db;
+            --secondary-color: #2980b9;
+            --success-color: #27ae60;
+            --danger-color: #e74c3c;
+            --light-bg: #1a1a2e;
+            --card-bg: #16213e;
+            --text-dark: #ecf0f1;
+            --text-light: #bdc3c7;
+            --border-color: #34495e;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--light-bg);
+            color: var(--text-dark);
+            padding: 2rem 0;
+        }
+
+        /* Profile Container */
+        .profile-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header Section */
+        .profile-header {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .profile-photo-large {
+            width: 150px;
+            height: 150px;
+            border-radius: 12px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            object-fit: cover;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .profile-header-content h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-header-content p {
+            font-size: 1rem;
+            opacity: 0.95;
+            margin: 0;
+        }
+
+        /* Main Profile Card */
+        .profile-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        /* Section Headers */
+        .profile-section-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1.5rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .profile-section-header i {
+            font-size: 1.5rem;
+        }
+
+        .profile-section-header h4 {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* Section Content */
+        .profile-section-content {
+            padding: 2rem;
+        }
+
+        /* Form Group */
+        .profile-form-group {
+            margin-bottom: 1.5rem;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .profile-form-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .profile-label {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .profile-label i {
+            font-size: 1.1rem;
+        }
+
+        .profile-value {
+            background: var(--light-bg);
+            padding: 0.9rem 1.25rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        [data-bs-theme="dark"] .profile-value {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Photo Section */
+        .photo-section {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .profile-photo-display {
+            width: 120px;
+            height: 120px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .photo-info {
+            flex: 1;
+        }
+
+        .photo-info h5 {
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .photo-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Address Section */
+        .address-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .address-grid .profile-form-group {
+            grid-template-columns: 1fr;
+            gap: 0.5rem;
+        }
+
+        .address-grid .profile-label {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Button Group */
+        .profile-actions {
+            padding: 2rem;
+            background: var(--light-bg);
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+        }
+
+        .btn-edit {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 0.85rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .btn-edit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.3);
+            color: white;
+            text-decoration: none;
+        }
+
+        .btn-edit:active {
+            transform: translateY(0);
+        }
+
+        .btn-back {
+            background: var(--card-bg);
+            color: var(--primary-color);
+            border: 1.5px solid var(--primary-color);
+            padding: 0.85rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .btn-back:hover {
+            background: rgba(52, 152, 219, 0.1);
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        /* Info Alert */
+        .profile-info {
+            background: rgba(52, 152, 219, 0.1);
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .profile-info i {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-top: 0.25rem;
+            flex-shrink: 0;
+        }
+
+        .profile-info-content p {
+            margin: 0;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-form-group {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+
+            .address-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-actions {
+                flex-direction: column;
+            }
+
+            .btn-edit,
+            .btn-back {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .profile-header-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .profile-photo-large {
+                width: 120px;
+                height: 120px;
+            }
+
+            .photo-section {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* Loading State */
+        .profile-skeleton {
+            background: var(--light-bg);
+            height: 20px;
+            border-radius: 4px;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Badge */
+        .profile-badge {
+            display: inline-block;
+            background: var(--success-color);
+            color: white;
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 0.75rem;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h2 class="mb-4">View profile</h2>
-    <form >
-      <div class="row mb-3">
-        <label for="name" class="col-sm-4 ">Full Name</label>
-        <div class="col-sm-8">
-        {{ data.name }}
+    <div class="profile-container">
+        <!-- Info Message -->
+        <div class="profile-info">
+            <i class="fas fa-info-circle"></i>
+            <div class="profile-info-content">
+                <p><strong>Profile Information</strong> - This is your personal health profile. Keep your information updated for accurate health monitoring and predictions.</p>
+            </div>
         </div>
-      </div>
 
-      <div class="row mb-3">
-        <label class="col-sm-4 ">Gender</label>
-        <div class="col-sm-8">
-          <div class="form-check form-check-inline">
-            {{ data.gender }}
-          </div>
-
+        <!-- Profile Header -->
+        <div class="profile-header">
+            <img src="{{ data.photo }}" alt="Profile Photo" class="profile-photo-large">
+            <div class="profile-header-content">
+                <h2>{{ data.name }}</h2>
+                <p>
+                    <i class="fas fa-heart me-2" style="color: #e74c3c;"></i>
+                    Member since {{ data.created_at|date:"M d, Y"|default:"Recently" }}
+                </p>
+            </div>
         </div>
-      </div>
 
-      <div class="row mb-3">
-        <label for="dob" class="col-sm-4 ">Date of Birth</label>
-        <div class="col-sm-8">
-            {{ data.dob}}
+        <!-- Personal Information Card -->
+        <div class="profile-card">
+            <div class="profile-section-header">
+                <i class="fas fa-user-circle"></i>
+                <h4>Personal Information</h4>
+            </div>
+            <div class="profile-section-content">
+                <div class="profile-form-group">
+                    <label class="profile-label">
+                        <i class="fas fa-user"></i>
+                        Full Name
+                    </label>
+                    <div class="profile-value">{{ data.name }}</div>
+                </div>
+
+                <div class="profile-form-group">
+                    <label class="profile-label">
+                        <i class="fas fa-venus-mars"></i>
+                        Gender
+                    </label>
+                    <div class="profile-value">
+                        {% if data.gender == 'male' %}
+                            <i class="fas fa-mars me-2" style="color: #3498db;"></i>Male
+                        {% elif data.gender == 'female' %}
+                            <i class="fas fa-venus me-2" style="color: #e91e63;"></i>Female
+                        {% else %}
+                            {{ data.gender }}
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="profile-form-group">
+                    <label class="profile-label">
+                        <i class="fas fa-birthday-cake"></i>
+                        Date of Birth
+                    </label>
+                    <div class="profile-value">{{ data.dob }}</div>
+                </div>
+
+                <div class="profile-form-group">
+                    <label class="profile-label">
+                        <i class="fas fa-envelope"></i>
+                        Email Address
+                    </label>
+                    <div class="profile-value">{{ data.email }}</div>
+                </div>
+
+                <div class="profile-form-group">
+                    <label class="profile-label">
+                        <i class="fas fa-phone"></i>
+                        Phone Number
+                    </label>
+                    <div class="profile-value">{{ data.phone }}</div>
+                </div>
+            </div>
         </div>
-      </div>
 
-      <div class="row mb-3">
-        <label for="email" class="col-sm-4 ">Email address</label>
-        <div class="col-sm-8">
-            {{ data.email }}
+        <!-- Address Information Card -->
+        <div class="profile-card">
+            <div class="profile-section-header">
+                <i class="fas fa-map-marker-alt"></i>
+                <h4>Address Information</h4>
+            </div>
+            <div class="profile-section-content">
+                <div class="address-grid">
+                    <div class="profile-form-group">
+                        <label class="profile-label">
+                            <i class="fas fa-map-pin"></i>
+                            Place
+                        </label>
+                        <div class="profile-value">{{ data.place }}</div>
+                    </div>
+
+                    <div class="profile-form-group">
+                        <label class="profile-label">
+                            <i class="fas fa-city"></i>
+                            City
+                        </label>
+                        <div class="profile-value">{{ data.city }}</div>
+                    </div>
+
+                    <div class="profile-form-group">
+                        <label class="profile-label">
+                            <i class="fas fa-location-dot"></i>
+                            District
+                        </label>
+                        <div class="profile-value">
+                            {% if data.district %}
+                                {{ data.district }}
+                            {% else %}
+                                Not provided
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="profile-form-group">
+                        <label class="profile-label">
+                            <i class="fas fa-flag"></i>
+                            State
+                        </label>
+                        <div class="profile-value">{{ data.state }}</div>
+                    </div>
+
+                    <div class="profile-form-group">
+                        <label class="profile-label">
+                            <i class="fas fa-mailbox"></i>
+                            Pincode
+                        </label>
+                        <div class="profile-value">{{ data.pin }}</div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
 
-      <div class="row mb-3">
-        <label for="phone" class="col-sm-4 ">Phone Number</label>
-        <div class="col-sm-8">
-            {{ data.phone }}
+        <!-- Photo Card -->
+        <div class="profile-card">
+            <div class="profile-section-header">
+                <i class="fas fa-image"></i>
+                <h4>Profile Photo</h4>
+            </div>
+            <div class="profile-section-content">
+                <div class="photo-section">
+                    <img src="{{ data.photo }}" alt="Profile Photo" class="profile-photo-display">
+                    <div class="photo-info">
+                        <h5>Your Profile Photo</h5>
+                        <p>This is your profile picture used across the Diabetic Distress Detection platform. Make sure it's a clear, recent photo for better identification.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
 
-      <div class="row mb-3">
-        <label for="place" class="col-sm-4 ">Place</label>
-        <div class="col-sm-8">
-            {{ data.place }}
+        <!-- Action Buttons -->
+        <div class="profile-actions">
+            <a href="/myapp/userhome_get/" class="btn-back">
+                <i class="fas fa-arrow-left"></i>
+                Back to Home
+            </a>
+            <a href="/myapp/editprofile_get/{{ data.id }}" class="btn-edit">
+                <i class="fas fa-edit"></i>
+                Edit Profile
+            </a>
         </div>
-      </div>
+    </div>
 
-      <div class="row mb-3">
-        <label for="city" class="col-sm-4 ">City</label>
-        <div class="col-sm-8">
-            {{ data.city }}
-        </div>
-      </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-      <div class="row mb-3">
-        <label for="state" class="col-sm-4 ">State</label>
-        <div class="col-sm-8">
-            {{ data.state }}
-        </div>
-      </div>
-
-      <div class="row mb-3">
-        <label for="pincode" class="col-sm-4 ">Pincode</label>
-        <div class="col-sm-8">
-            {{ data.pin }}
-          </div>
-      </div>
-
-      <div class="row mb-3">
-        <label for="photo" class="col-sm-4 ">Photo</label>
-        <div class="col-sm-8">
-           <img src="{{ data.photo }}"height="100" width="100">
-        </div>
-      </div>
-
-
-
-      <div class="row mb-3">
-        <div class="offset-sm-4 col-sm-8">
-          <a href="/myapp/editprofile_get/{{ data.id }}" class="btn btn-primary">edit</a>
-        </div>
-      </div>
-    </form>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Theme preference from parent page
+        if (localStorage.getItem('theme') === 'light') {
+            document.documentElement.setAttribute('data-bs-theme', 'light');
+        }
+    </script>
 </body>
 </html>
+{% endblock %}
+
+{#{% extends 'users/users_home.html' %}#}
+{#{% block body %}#}
+{#<body>#}
+{#  <div class="container">#}
+{#    <h2 class="mb-4">View profile</h2>#}
+{#    <form >#}
+{#      <div class="row mb-3">#}
+{#        <label for="name" class="col-sm-4 ">Full Name</label>#}
+{#        <div class="col-sm-8">#}
+{#        {{ data.name }}#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label class="col-sm-4 ">Gender</label>#}
+{#        <div class="col-sm-8">#}
+{#          <div class="form-check form-check-inline">#}
+{#            {{ data.gender }}#}
+{#          </div>#}
+{##}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label for="dob" class="col-sm-4 ">Date of Birth</label>#}
+{#        <div class="col-sm-8">#}
+{#            {{ data.dob}}#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label for="email" class="col-sm-4 ">Email address</label>#}
+{#        <div class="col-sm-8">#}
+{#            {{ data.email }}#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label for="phone" class="col-sm-4 ">Phone Number</label>#}
+{#        <div class="col-sm-8">#}
+{#            {{ data.phone }}#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label for="place" class="col-sm-4 ">Place</label>#}
+{#        <div class="col-sm-8">#}
+{#            {{ data.place }}#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label for="city" class="col-sm-4 ">City</label>#}
+{#        <div class="col-sm-8">#}
+{#            {{ data.city }}#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label for="state" class="col-sm-4 ">State</label>#}
+{#        <div class="col-sm-8">#}
+{#            {{ data.state }}#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label for="pincode" class="col-sm-4 ">Pincode</label>#}
+{#        <div class="col-sm-8">#}
+{#            {{ data.pin }}#}
+{#          </div>#}
+{#      </div>#}
+{##}
+{#      <div class="row mb-3">#}
+{#        <label for="photo" class="col-sm-4 ">Photo</label>#}
+{#        <div class="col-sm-8">#}
+{#           <img src="{{ data.photo }}"height="100" width="100">#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{##}
+{##}
+{#      <div class="row mb-3">#}
+{#        <div class="offset-sm-4 col-sm-8">#}
+{#          <a href="/myapp/editprofile_get/{{ data.id }}" class="btn btn-primary">Edit</a>#}
+{#        </div>#}
+{#      </div>#}
+{#    </form>#}
+{#  </div>#}
+{#  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>#}
+{##}
+{#  {% endblock %}#}
+{#</body>#}
+{#</html>#}
