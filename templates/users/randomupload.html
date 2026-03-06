@@ -1,246 +1,221 @@
-
 {% extends 'users/users_home.html' %}
 {% block body %}
 
 <style>
-    /* Professional Medical-Dark Theme Variables */
     :root {
         --primary-cyan: #06A3DA;
         --dark-navy: #091E3E;
         --card-bg: #11233E;
         --input-bg: rgba(255, 255, 255, 0.05);
-        --text-muted: #A0B3CE;
     }
-
-    .prediction-section {
-        padding: 60px 0;
-        min-height: 90vh;
-        display: flex;
-        align-items: center;
-        background-color: var(--dark-navy);
-    }
-
+    .prediction-section { padding: 40px 0; background-color: var(--dark-navy); color: white; min-height: 100vh; }
     .prediction-card {
         background: var(--card-bg);
         border-radius: 20px;
         padding: 40px;
         border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        max-width: 900px;
+        max-width: 1100px;
         margin: auto;
     }
-
-    /* Header Section */
-    .header-box {
-        text-align: center;
-        margin-bottom: 40px;
-    }
-
-    .icon-circle {
-        width: 70px;
-        height: 70px;
-        background: var(--primary-cyan);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 20px;
-        box-shadow: 0 0 20px rgba(6, 163, 218, 0.4);
-        color: white;
-        font-size: 28px;
-    }
-
-    .header-box h2 {
-        color: var(--primary-cyan);
+    .section-title {
+        border-left: 4px solid var(--primary-cyan);
+        padding-left: 15px;
+        margin: 30px 0 15px;
         font-weight: 800;
         text-transform: uppercase;
-        letter-spacing: 2px;
-        margin-bottom: 10px;
+        color: var(--primary-cyan);
     }
-
-    .header-box p {
-        color: var(--text-muted);
-        font-size: 0.95rem;
-    }
-
-    /* Form Grid Styling */
-    .form-label-custom {
-        color: #fff;
-        font-weight: 700;
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        margin-bottom: 10px;
-        display: block;
-    }
-
+    .form-label-custom { font-weight: 700; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 8px; display: block; }
     .form-control-modern {
         background: var(--input-bg);
         border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 12px;
-        padding: 14px 18px;
+        border-radius: 8px;
+        padding: 10px;
         color: #fff;
-        font-size: 1rem;
-        transition: all 0.3s ease;
         width: 100%;
     }
-
-    .form-control-modern:focus {
-        background: rgba(255, 255, 255, 0.08);
-        border-color: var(--primary-cyan);
-        box-shadow: 0 0 15px rgba(6, 163, 218, 0.2);
-        outline: none;
-        color: #fff;
-    }
-
-    /* Gender Toggle Styling */
-    .gender-container {
-        display: flex;
-        gap: 10px;
-    }
-
-    .gender-option {
-        flex: 1;
-        position: relative;
-    }
-
-    .gender-option input {
-        display: none;
-    }
-
-    .gender-label {
-        display: block;
-        padding: 12px;
-        text-align: center;
-        background: var(--input-bg);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 12px;
-        color: #fff;
-        cursor: pointer;
-        font-weight: 700;
-        transition: 0.3s;
-    }
-
-    .gender-option input:checked + .gender-label {
-        background: var(--primary-cyan);
-        border-color: var(--primary-cyan);
-        box-shadow: 0 0 15px rgba(6, 163, 218, 0.3);
-    }
-
-    /* Submit Button */
+    .form-control-modern:focus { border-color: var(--primary-cyan); outline: none; box-shadow: 0 0 10px rgba(6, 163, 218, 0.2); }
     .btn-submit-glow {
         background: var(--primary-cyan);
         color: white;
-        border: none;
-        padding: 16px 50px;
-        border-radius: 12px;
+        padding: 15px;
+        border-radius: 10px;
         font-weight: 800;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        transition: all 0.3s;
-        box-shadow: 0 8px 25px rgba(6, 163, 218, 0.4);
-        display: block;
-        width: fit-content;
-        margin: 30px auto 0;
-    }
-
-    .btn-submit-glow:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 12px 30px rgba(6, 163, 218, 0.6);
-        background: #058cb9;
-    }
-
-    /* Result Result Styling */
-    .result-alert {
-        background: rgba(6, 163, 218, 0.1);
-        border: 1px solid var(--primary-cyan);
-        padding: 20px;
-        border-radius: 15px;
+        width: 100%;
         margin-top: 30px;
-        text-align: center;
-        color: #fff;
+        border: none;
+        cursor: pointer;
+        transition: 0.3s;
     }
-
-    .result-alert h4 {
-        color: var(--primary-cyan);
-        font-weight: 800;
-        margin-bottom: 5px;
-    }
+    .btn-submit-glow:hover { background: #058cb9; transform: translateY(-2px); }
 </style>
 
 <div class="prediction-section">
     <div class="container">
         <div class="prediction-card">
-
-            <div class="header-box">
-                <div class="icon-circle">
-                    <i class="fas fa-microscope"></i>
-                </div>
-                <h2>Diabetes Prediction Portal</h2>
-                <p>Input clinical markers to generate immediate health insights</p>
-            </div>
+            <h2 class="text-center mb-4">Diabetes Health Indicators Form</h2>
+            <p class="text-center text-muted mb-5">Inputs organized according to dataset schema (21 Features).</p>
 
             <form method="post" action="/myapp/upload_logs_post/">
                 {% csrf_token %}
 
-                <div class="row g-4">
-                    <div class="col-md-6">
-                        <label class="form-label-custom">Patient Age</label>
-                        <input type="text" class="form-control-modern" name="age" placeholder="Years" required>
+                <div class="section-title">Clinical Screening</div>
+                <div class="row g-3">
+                    <div class="col-md-3">
+                        <label class="form-label-custom">HighBP</label>
+                        <select class="form-control-modern" name="HighBP">
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
                     </div>
-                    <div class="col-md-6">
-                        <label class="form-label-custom">Hypertension Status</label>
-                        <input type="text" class="form-control-modern" name="hypertension" placeholder="0 = No, 1 = Yes" required>
+                    <div class="col-md-3">
+                        <label class="form-label-custom">HighChol</label>
+                        <select class="form-control-modern" name="HighChol">
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
                     </div>
-
-                    <div class="col-md-6">
-                        <label class="form-label-custom">Gender Selection</label>
-                        <div class="gender-container">
-                            <div class="gender-option">
-                                <input type="radio" value="Male" name="gender" id="male" required>
-                                <label class="gender-label" for="male">MALE</label>
-                            </div>
-                            <div class="gender-option">
-                                <input type="radio" value="Female" name="gender" id="female" required>
-                                <label class="gender-label" for="female">FEMALE</label>
-                            </div>
-                        </div>
+                    <div class="col-md-3">
+                        <label class="form-label-custom">CholCheck</label>
+                        <select class="form-control-modern" name="CholCheck">
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
                     </div>
-                    <div class="col-md-6">
-                        <label class="form-label-custom">Heart Disease</label>
-                        <input type="text" class="form-control-modern" name="heartdisease" placeholder="0 = No, 1 = Yes" required>
-                    </div>
-
-                    <div class="col-md-6">
-                        <label class="form-label-custom">Smoking History</label>
-                        <input type="text" class="form-control-modern" name="smokinghistory" placeholder="e.g. Never, Current, Former" required>
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label-custom">BMI (Body Mass Index)</label>
-                        <input type="text" class="form-control-modern" name="bmi" placeholder="Weight (kg) / Height²" required>
-                    </div>
-
-                    <div class="col-md-6">
-                        <label class="form-label-custom">HbA1c Level</label>
-                        <input type="text" class="form-control-modern" name="hba1clevel" placeholder="Average Blood Sugar" required>
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label-custom">Blood Glucose Level</label>
-                        <input type="text" class="form-control-modern" name="bloodglucoselevel" placeholder="Current Glucose (mg/dL)" required>
+                    <div class="col-md-3">
+                        <label class="form-label-custom">BMI</label>
+                        <input type="number" step="0.1" class="form-control-modern" name="BMI" placeholder="e.g. 28" required>
                     </div>
                 </div>
 
-                <button type="submit" class="btn-submit-glow">
-                    Generate Prediction
-                </button>
-
-                {% if result %}
-                <div class="result-alert">
-                    <h4>Analysis Result</h4>
-                    <p class="m-0">{{ result }}</p>
+                <div class="section-title">History & Activity</div>
+                <div class="row g-3">
+                    <div class="col-md-3">
+                        <label class="form-label-custom">Smoker</label>
+                        <select class="form-control-modern" name="Smoker">
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label-custom">Stroke</label>
+                        <select class="form-control-modern" name="Stroke">
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label-custom">HeartDiseaseorAttack</label>
+                        <select class="form-control-modern" name="HeartDiseaseorAttack">
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label-custom">PhysActivity</label>
+                        <select class="form-control-modern" name="PhysActivity">
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
                 </div>
-                {% endif %}
+
+                <div class="section-title">Diet & Lifestyle</div>
+                <div class="row g-3">
+                    <div class="col-md-3">
+                        <label class="form-label-custom">Fruits</label>
+                        <select class="form-control-modern" name="Fruits">
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label-custom">Veggies</label>
+                        <select class="form-control-modern" name="Veggies">
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label-custom">HvyAlcoholConsump</label>
+                        <select class="form-control-modern" name="HvyAlcoholConsump">
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label-custom">AnyHealthcare</label>
+                        <select class="form-control-modern" name="AnyHealthcare">
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="section-title">Health Perception</div>
+                <div class="row g-3">
+                    <div class="col-md-3">
+                        <label class="form-label-custom">NoDocbcCost</label>
+                        <select class="form-control-modern" name="NoDocbcCost">
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label-custom">GenHlth (1-5)</label>
+                        <input type="number" min="1" max="5" class="form-control-modern" name="GenHlth" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label-custom">MentHlth (0-30)</label>
+                        <input type="number" min="0" max="30" class="form-control-modern" name="MentHlth" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label-custom">PhysHlth (0-30)</label>
+                        <input type="number" min="0" max="30" class="form-control-modern" name="PhysHlth" required>
+                    </div>
+                </div>
+
+                <div class="section-title">Mobility & Demographics</div>
+                <div class="row g-3">
+                    <div class="col-md-2">
+                        <label class="form-label-custom">DiffWalk</label>
+                        <select class="form-control-modern" name="DiffWalk">
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="form-label-custom">Sex</label>
+                        <select class="form-control-modern" name="Sex">
+                            <option value="1">Male</option>
+                            <option value="0">Female</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="form-label-custom">Age (1-13)</label>
+                        <input type="number" min="1" max="13" class="form-control-modern" name="Age" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label-custom">Education (1-6)</label>
+                        <input type="number" min="1" max="6" class="form-control-modern" name="Education" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label-custom">Income (1-8)</label>
+                        <input type="number" min="1" max="8" class="form-control-modern" name="Income" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit-glow">Run Diagnostic AI</button>
             </form>
+
+            {% if result %}
+            <div class="mt-5 p-4 border border-info rounded bg-dark">
+                <h3 class="text-info text-center">Prediction: {{ result }}</h3>
+                <div class="text-center mt-3">
+                    <img src="data:image/png;base64,{{ explanation_plot }}" alt="AI Explanation Plot" style="max-width: 100%; border-radius: 10px;">
+                </div>
+            </div>
+            {% endif %}
         </div>
     </div>
 </div>
