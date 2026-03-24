@@ -77,11 +77,8 @@ WSGI_APPLICATION = "diabeticdistress.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": 'diabeticdistress',
-        "USER":"root",
-        "PASSWORD":"root",
-
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
 
