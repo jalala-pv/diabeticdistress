@@ -1,0 +1,90 @@
+import pandas as pd
+import numpy as np
+import joblib
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split
+# StandardScaler: Normalizes features so they have a mean of 0 and variance of 1
+from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import classification_report, accuracy_score
+# SMOTE: Synthetic Minority Over-sampling Technique. It creates "fake" data for underrepresented
+# classes to prevent the model from being biased toward the majority class.
+from imblearn.over_sampling import SMOTE
+
+# ==========================================
+# 1. LOAD DATASET
+# ==========================================
+path = r"C:\Users\pvjal\Downloads\diabetes_balanced_high_quality_dataset.csv"
+df = pd.read_csv(path)
+
+features = [
+    'HighBP', 'HighChol', 'CholCheck', 'BMI', 'Smoker', 'Stroke',
+    'HeartDiseaseorAttack', 'PhysActivity', 'Fruits', 'Veggies',
+    'HvyAlcoholConsump', 'AnyHealthcare', 'NoDocbcCost', 'GenHlth',
+    'MentHlth', 'PhysHlth', 'DiffWalk', 'Sex', 'Age', 'Education', 'Income'
+]
+
+X = df[features]
+y = df['Diabetes_012']
+
+print(f"Dataset Loaded. Shape: {df.shape}")
+
+# ==========================================
+# 2. TRAIN-TEST SPLIT & SCALING
+# ==========================================
+# stratify=y: Ensures the percentage of each class is the same in both train and test sets.
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42, stratify=y
+)
+# Scaling: Logistic Regression works best when all inputs are on the same scale (e.g., Age vs Income).
+scaler = StandardScaler()
+# Learns mean/std from train set and scales it.
+X_train_scaled = scaler.fit_transform(X_train)
+# Uses the same mean/std to scale the test set.
+X_test_scaled = scaler.transform(X_test)
+
+# ==========================================
+# 3. HANDLE CLASS IMBALANCE (SMOTE)
+# ==========================================
+# SMOTE generates synthetic samples for the minority classes so the model learns all classes equally.
+smote = SMOTE(random_state=42)
+X_res, y_res = smote.fit_resample(X_train_scaled, y_train)
+print("Balancing completed with SMOTE.")
+
+# ==========================================
+# 4. TRAIN LOGISTIC REGRESSION
+# ==========================================
+# max_iter=2000: Gives the solver more "tries" to find the best mathematical fit.
+# solver='lbfgs': A common optimization algorithm for multiclass problems.
+model = LogisticRegression(max_iter=2000, solver='lbfgs')
+# The actual "learning" process using the balanced data.
+model.fit(X_res, y_res)
+print("Model training finished.")
+
+# ==========================================
+# 5. EVALUATION (ONLY TEXT REPORT)
+# ==========================================
+# Generate predictions for the unseen test data.
+y_pred = model.predict(X_test_scaled)
+# Calculate percentage of correct predictions.
+acc = accuracy_score(y_test, y_pred)
+
+print(f"\nOverall Test Accuracy: {round(acc * 100, 2)}%")
+print("\nDetailed Classification Report:")
+# classification_report: Shows Precision, Recall, and F1-Score for each distress level.
+print(classification_report(y_test, y_pred, target_names=["Low Distress", "Moderate Distress", "High Distress"]))
+
+# ==========================================
+# 6. SAVE MODEL BUNDLE
+# ==========================================
+save_path = r'D:\pgs4projectseminar\project\diabeticdistresslevel-main\myapp\diabetes_lr_model.pkl'
+# We save the model, the scaler (needed to process future user input), and the feature list in one file.
+joblib.dump({
+    "model": model,
+    "scaler": scaler,
+    "features": features,
+    "metrics": {
+        "accuracy": round(acc * 100, 2)
+    }
+}, save_path)
+
+print(f"\nSuccess! Model bundle saved to: {save_path}")
