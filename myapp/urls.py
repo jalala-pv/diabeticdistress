@@ -36,18 +36,21 @@ urlpatterns = [
     path('viewblockeduser_get/',views.viewblockeduser_get),
 
     path('blockeduser/<id>',views.blockeduser),
+    path('unblockeduser/<id>',views.unblockeduser),
 
     path('viewcomplaint_get/',views.viewcomplaint_get),
 
     path('viewlogs_get/',views.viewlogs_get),
 
     path('viewuser_get/',views.viewuser_get),
+    path('adm_view_feedback/',views.adm_view_feedback),
     #U S E R
     path('editprofile_get/<id>',views.editprofile_get),
     path('editprofile_post/',views.editprofile_post),
 
     path('sentcomplaint_get/',views.sentcomplaint_get),
     path('sentcomplaint_post/',views.sentcomplaint_post),
+    path('upload_xgb_logs_post/',views.upload_xgb_logs_post),
 
     path('signup_get/',views.signup_get),
     path('signup_post/',views.signup_post),
@@ -63,6 +66,15 @@ urlpatterns = [
 
     path('ratingandreview_get/',views.ratingandreview_get),
     path('ratingandreview_post/', views.ratingandreview_post),
+    path('view_rating/', views.view_rating),
+
+    path('u_changepassword_get/', views.u_changepassword_get),
+    path('u_changepassword_post/', views.u_changepassword_post),
 
     path('admin_home/',views.admin_home),
+    path('upload_logs/',views.upload_logs),
+    # path('upload_logs_post/',views.upload_logs_post),
+    path('new_upload_logs_post/',views.new_upload_logs_post),
+    path('new_upload_lr_logs_post/',views.new_upload_lr_logs_post),
+    # path('new_upload_xgb_logs_post/',views.new_upload_xgb_logs_post),
 ]
